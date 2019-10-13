@@ -31,6 +31,8 @@
           <div class="border-b border-purple-200 mb-10 pb-4 anchor-tags" v-pre>
             @yield('content')
           </div>
+
+          <div id="commento"></div>
         </div>
       </div>
       <navigation-on-page :headings="pageHeadings"></navigation-on-page>
@@ -53,3 +55,7 @@
         </div>
     </nav>
 @endsection
+
+@push('scripts')
+  <script src="https://cdn.commento.io/js/commento.js"></script>
+@endpush
