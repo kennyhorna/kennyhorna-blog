@@ -2,7 +2,7 @@
 extends: _layouts.post
 section: content
 title: Creando sitios estáticos con Jigsaw
-date: 2019-10-12
+date: 2019-10-13
 description: Hace algún tiempo tenía ganas de probar Jigsaw, un proyecto de Tighten, así que describiré como cree este mismo blog de la mano de esta herramienta.
 cover_image: /assets/images/posts/cover-jigsaw.jpg
 featured: true
@@ -311,14 +311,69 @@ npm run production
 
 Puedes desplegar tu sitio en cualquier servidor. Si nos ceñimos a sitios estáticos, hay unas cuantas
 alternativas gratuitas donde podemos alojar sin costo alguno nuestro sitio. Entre estos tenemos a
-[Github Pages](https://pages.github.com/) y [Netlify](https://www.netlify.com/).
+[Github Pages](https://pages.github.com/) y [Netlify](https://www.netlify.com/). Ambos proveen este
+servicio de manera gratuita (con ciertas limitaciones, pero suficientes para nuestro caso) proveyendo
+también certificados SSL para nuestro sitio.
 
 <img src="/assets/images/posts/netlify-1.png" class="w-full" alt="Netlify service" />
 
-En mi caso utilicé este último: Netlify.
+En nuestro caso, utilizaremos este último: Netlify.
 
-Nos creamos una cuenta y 
+Antes de ir a Netlify, crearemos un nuevo archivo (`netlify.toml`) en la raíz del directorio de nuestro 
+proyecto donde se alojará la configuración de Netlify para que se automaticen las actualizaciones de 
+nuestro sitio.
 
+> Si es que no lo has hecho hasta ahora, también necesitarás subir tu código a un repositorio online, en
+> mi caso utilizaré Github (puedes ver el código fuente de este proyecto 
+> [aquí](https://github.com/kennyhorna/kennyhorna-blog)). 
+
+```
+[build]
+
+command = "npm run production"
+publish = "build_production"
+environment = { PHP_VERSION = "7.2" }
+```
+
+Agregamos este archivo a nuestro repositorio y ahora ya estamos listos para desplegar nuestro site.
+
+Nos dirigimos a [www.netlify.com](www.netlify.com) y accedemos -en caso no tengas una cuenta aún tendrás
+que registrarte- y le damos a **"New site from Git"**.
+
+![](/assets/images/posts/netlify-step-1.png)
+
+Luego de esto, para _Despliegue Continuo_ conectaremos con el repositorio online que utilizamos para
+alojar nuestro código, en mi caso lo tengo en GitHub (otorgamos permisos, si es que no lo hicimos aún)
+y seleccionamos el repositorio que deseamos.
+
+![](/assets/images/posts/netlify-step-2.png)
+
+Dado que ya tenemos nuestro `netlify.toml` configurado, notaremos que se pre-configuraron el resto de campos
+por lo que solo queda continuar el proceso. 
+
+Una vez hecho esto, esperamos unos minutos hasta que Netlify construya el sitio. Al finalizar el proceso, nos
+otorgará una url del estilo `XXXXXXXXXX.netlify.com` la cual podemos personalizar en caso querramos. También
+podemos conectar un dominio registrado anteriormente, o incluso, registrar uno nuevo a través de Netlify.
+
+#### Nota
+La url que utilizaremos en producción debemos de incluirla en el archivo de configuración correspondiente
+`config.production.php`. Esto es necesario pues todas las rutas se configurarán con esta url base:
+
+```php
+ return [
+     'baseUrl' => 'https://kennyhorna.com', // <--
+     'production' => true,
+ ];
+```
+
+Para futuras actualizaciones en tu proyecto, como por ejemplo cuando publiques nuevos artículos, solo tendrás
+que hacer _push_ a tu repositorio y Netlify se encargará de actualizar tu sitio por ti. 
+
+
+## Conclusión
+
+Como hemos podido ver, la configuración de un sitio estático se agiliza bastante con Jigsaw, por lo que 
+definitivamente es una herramienta a tener en cuenta para proyectos estáticos rápidos. 
 
 
 
