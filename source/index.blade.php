@@ -7,8 +7,8 @@
                 <img src="{{ $featuredPost->cover_image }}" alt="{{ $featuredPost->title }} cover image" class="mb-6">
             @endif
 
-            <p class="text-gray-700 font-medium my-2">
-                <?php setlocale(LC_ALL, 'es_ES'); echo strftime("%e de %B del %Y", $featuredPost->getDate()->getTimestamp()); ?>
+            <p class="text-gray-700 font-medium my-2 text-sm">
+                {{ $featuredPost->getDate()->format('d-m-Y') }}
             </p>
 
             <h2 class="text-3xl mt-0">

@@ -1,6 +1,6 @@
 <div class="flex flex-col mb-4">
     <p class="text-gray-700 font-medium my-2">
-        <?php setlocale(LC_ALL, 'es_ES'); echo strftime("%e de %B, %Y", $post->getDate()->getTimestamp()); ?>
+      {{ $post->getDate()->format('d-m-Y') }}
     </p>
 
     <h2 class="text-3xl mt-0">

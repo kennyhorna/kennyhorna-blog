@@ -6,7 +6,7 @@ date: 2019-10-13
 description: Hace algún tiempo tenía ganas de probar Jigsaw, un proyecto de Tighten, así que describiré como cree este mismo blog de la mano de esta herramienta.
 cover_image: /assets/images/posts/cover-jigsaw.jpg
 featured: true
-categories: [blade, laravel]
+categories: [jigsaw, blade, despliegue, tutoriales]
 ---
 
 Hace algún tiempo tenía ganas de probar Jigsaw, así que describiré como creé este mismo blog de la mano de 
