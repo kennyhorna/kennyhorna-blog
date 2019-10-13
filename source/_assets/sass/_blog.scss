@@ -30,3 +30,9 @@ pre {
     @apply bg-purple-700 rounded-full;
   }
 }
+
+.anchor-tags {
+  h3 {
+    @apply pt-24 -mt-24;
+  }
+}
