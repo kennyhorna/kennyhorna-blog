@@ -1,0 +1,32 @@
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-500 rounded-full;
+}
+
+
+pre {
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    @apply bg-purple-900 rounded-full;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    @apply bg-purple-900 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-purple-700 rounded-full;
+  }
+}
