@@ -38,7 +38,7 @@
 </head>
 
 <body>
-@php(setlocale(LC_ALL, 'es'))
+@php(setlocale(LC_ALL, 'es_ES'))
 <div id="vue-app" class="flex flex-col justify-between min-h-screen text-gray-800 leading-normal font-sans bg-gray-100">
   <header class="flex items-center shadow bg-white border-b h-20 py-4 sticky top-0 z-50" role="banner">
     <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
