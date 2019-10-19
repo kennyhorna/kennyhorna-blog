@@ -11,7 +11,7 @@
       @endif
 
       <p class="text-gray-700 font-medium my-2 text-sm">
-        {{ $featuredPost->getDate()->format('d-m-Y') }}
+        {{ strftime("%d de %B, %Y", $featuredPost->getDate()->getTimestamp()) }}
       </p>
 
       <h2 class="text-3xl mt-0">

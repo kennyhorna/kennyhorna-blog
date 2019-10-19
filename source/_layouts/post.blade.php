@@ -17,7 +17,7 @@
         <div class="w-full p-6 md:p-12 md:pb-6">
           <h1 class="leading-none mb-2 text-4xl text-center md:text-left md:text-5xl">{{ $page->title }}</h1>
 
-          <p class="text-gray-700 text-md md:mt-0">{{ $page->author }}  •  {{ $page->getDate()->format('d-m-Y') }}</p>
+          <p class="text-gray-700 text-md md:mt-0">{{ $page->author }}  •  {{ strftime("%d de %B, %Y", $page->getDate()->getTimestamp()) }}</p>
           @if ($page->categories)
             @foreach ($page->categories as $i => $category)
               <a
