@@ -37,18 +37,18 @@
       </div>
       <navigation-on-page :headings="pageHeadings"></navigation-on-page>
     </div>
-    <nav class="flex justify-between text-sm md:text-base">
-        <div>
+    <nav class="flex flex-col md:flex-row items-start md:text-base my-4 w-full lg:w-2/3 lg:pl-8">
+        <div class="w-full mx-4 md:1/3 text-center py-4">
             @if ($next = $page->getNext())
-                <a href="{{ $next->getUrl() }}" title="Older Post: {{ $next->title }}">
+                <a href="{{ $next->getUrl() }}" title="Artículo anterior: {{ $next->title }}">
                     &LeftArrow; {{ $next->title }}
                 </a>
             @endif
         </div>
 
-        <div>
+        <div class="w-full mx-4 md:1/3 text-center py-4">
             @if ($previous = $page->getPrevious())
-                <a href="{{ $previous->getUrl() }}" title="Newer Post: {{ $previous->title }}">
+                <a href="{{ $previous->getUrl() }}" title="Artículo siguiente: {{ $previous->title }}">
                     {{ $previous->title }} &RightArrow;
                 </a>
             @endif

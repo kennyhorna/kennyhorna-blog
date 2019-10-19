@@ -14,7 +14,7 @@
 
         <img src="/assets/images/main/about-me.jpg"
              alt="Kenny Horna"
-             class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10">
+             class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10 no-draggable">
 
         <p class="mb-6">¡Hola! Mi nombre es Kenny Horna, Ingeniero de Aplicaciones y Diseñador de Experiencia de Usuario.</p>
 

@@ -13,7 +13,6 @@ return [
             'author' => 'Kenny Horna', // Default author, if not provided in a post
             'sort' => '-date',
             'path' => 'blog/{filename}',
-//            'excerpt' => 'El resumen del artículo',
         ],
         'categories' => [
             'path' => '/blog/secciones/{filename}',

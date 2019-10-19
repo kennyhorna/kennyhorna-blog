@@ -36,3 +36,26 @@ pre {
     @apply pt-24 -mt-24;
   }
 }
+
+.no-draggable {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+img {
+  @apply rounded;
+  @apply no-draggable;
+}
+
+ul {
+  @apply list-disc list-inside;
+}
+
+ol {
+  @apply list-decimal list-inside;
+}
+
+
