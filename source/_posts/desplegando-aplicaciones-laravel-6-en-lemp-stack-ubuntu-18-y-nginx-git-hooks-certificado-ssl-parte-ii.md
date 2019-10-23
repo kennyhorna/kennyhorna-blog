@@ -9,16 +9,14 @@ featured: true
 categories: [despliegue, tutoriales, laravel, php]
 ---
 
-Esta es la segunda parte de la guía sobre como configurar un VPS utilizando LEMP Stack para servir una aplicación Laravel.
+En esta segunda parte nos enfocaremos en la instalación de Git, la configuración de nuestro Git Hook, la configuración
+de Laravel y de nuestro entorno de producción para poder servir correctamente nuestra aplicación Laravel.
 
 Los artículos de esta mini-serie son los siguientes:
 
 - [Parte I: Instalación y configuración de LEMP Stack](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-i/) 
 - **Parte II: Instalación y configuración de Laravel + Git Hooks** _(estamos aquí)_
 - Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel
-
-En esta segunda parte nos enfocaremos en la creación y configuración de nuestro VPS, así como también la
-instalación y configuración de LEMP Stack. 
 
 Sin más que añadir, continuemos.
 
