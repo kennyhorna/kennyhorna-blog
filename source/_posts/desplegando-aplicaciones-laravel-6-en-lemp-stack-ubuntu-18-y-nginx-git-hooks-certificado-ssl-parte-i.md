@@ -4,8 +4,8 @@ section: content
 title: "Desplegando Laravel con LEMP Stack - Parte I: Instalación y configuración de LEMP Stack"
 date: 2019-10-19
 description: Siempre es difícil querer desplegar aplicaciones Laravel, sobre todo cuando estamos iniciando. Esta guía pretende orientarte en esta -frecuentemente complicada- tarea.  
-cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-parte-i.png
-featured: true
+cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p01.png
+featured: false
 categories: [despliegue, tutoriales, laravel, php]
 ---
 
@@ -16,11 +16,11 @@ Esta guía está basada en la realizada por
 la cual me ayudó mucho en su momento.
 
 Para facilitar la lectura, he dividido esta guía en tres partes:
-- Parte I: Instalación y configuración de LEMP Stack 
-- Parte II: Instalación y configuración de Laravel + Git Hooks
+- **Parte I: Instalación y configuración de LEMP Stack** _(estamos aquí)_ 
+- [Parte II: Instalación y configuración de Laravel + Git Hooks](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-ii/)
 - Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel
 
-En esta primera parte (I) nos enfocaremos en la creación y configuración de nuestro VPS, así como también la
+En esta primera parte nos enfocaremos en la creación y configuración de nuestro VPS, así como también la
 instalación y configuración de LEMP Stack.
 
 ### Aclaraciones previas
