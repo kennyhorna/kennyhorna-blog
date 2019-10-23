@@ -500,4 +500,4 @@ certificado SSL a nuestra aplicación. Esto lo veremos en la siguiente (y últim
 Si es que tienes dudas sobre los pasos anteriores, visita la [Parte I (Instalación y configuración de LEMP Stack)](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-i/).
 de la guía.
 
-Cualquier comentario/observación/pregunta/aclaración es bien recibida así que.. nos vemos 💪😉.
+Cualquier comentario, observación, pregunta y/o aclaración es bien recibida así que.. nos vemos 💪😉.
