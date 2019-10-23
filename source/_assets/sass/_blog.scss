@@ -59,3 +59,12 @@ ol {
 }
 
 
+.share-btn > a {
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.share-btn > a:hover {
+  cursor: pointer;
+}

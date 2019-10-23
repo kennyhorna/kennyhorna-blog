@@ -42,7 +42,8 @@ module.exports = {
   variants: {
     borderRadius: ['responsive', 'focus'],
     borderWidth: ['responsive', 'active', 'focus'],
-    width: ['responsive', 'focus']
+    width: ['responsive', 'focus'],
+    backgroundColor: ['responsive', 'hover', 'focus'],
   },
   plugins: [
     function ({addUtilities}) {
