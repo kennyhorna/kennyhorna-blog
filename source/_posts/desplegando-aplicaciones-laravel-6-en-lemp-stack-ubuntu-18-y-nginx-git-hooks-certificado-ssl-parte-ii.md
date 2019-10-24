@@ -205,7 +205,7 @@ Accederemos a la consola de MySQL con el siguiente comando:
 mysql -u root -p'tu-clave'
 ```
 
-> Asegurate de reemplazar `'tu-clave` por la clave que estableciste en tu base de datos.
+> Asegúrate de reemplazar `tu-clave` por la clave que estableciste en tu base de datos.
 > Observación: nota que no hay espacio entre la `p` y el primer `'`.
 
 Si todo marchó bien, deberías ver la línea de comenzar iniciando con un `mysql>`:
