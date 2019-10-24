@@ -100,11 +100,11 @@ Escribimos (o pegamos) lo siguiente:
 git --work-tree=/var/www/laravel --git-dir=/var/repo/site.git checkout -f
 ```
 
-> Para pegar en el terminal puede que no te funcione el `CTRL + V`, si es así, prueba `SHIFT + INSERT`.
+> Para pegar en el terminal puede que no te funcione el <kbd>Ctrl</kbd> + <kbd>V</kbd>, si es así, prueba <kbd>Shift</kbd> + <kbd>Insert</kbd>.
 
 Ahora guardamos y salimos.
 
-> Para guardar los cambios apretaremos primero `CTRL+X`, luego tipeamos `Y` y por último apretamos `Enter`.
+> Para guardar los cambios apretaremos primero <kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>.
 
 ¿Pero qué hemos hecho exactamente? Veamos.
 
@@ -224,7 +224,7 @@ Para validar que nuestra DB ha sido creada, podemos ejecutar:
 
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-3.png)
 
-Con esto, ya podemos salir de MySQL. Ingresamos ``exit`` y le damos a `Enter`.
+Con esto, ya podemos salir de MySQL. Ingresamos ``exit`` y le damos a <kbd>Enter</kbd>.
 
     exit
 
@@ -321,7 +321,7 @@ Ahora que ya sabemos el motivo del uso de los ``.env``, vamos a proceder a crear
 Si nos fijamos (``ls -A /var/www/laravel``) veremos que sí bien no tenemos el ``.env``, sí que tenemos uno similar: 
 ``.env.example``. Podemos utilizar este otro fichero como modelo de ejemplo para poder crear nuestro ``.env``.
 
-> Tal vez hayas notado que incluimos el flag -A al listar los archivos del directorio laravel: ``ls -A /var/www/laravel``
+> Tal vez hayas notado que incluimos el flag ``-A`` al listar los archivos del directorio laravel: ``ls -A /var/www/laravel``
 > lo que hace este argumento es incluir en el listado los archivos ocultos.
 
 Entonces, lo que haremos será clonar el ``.env.example``, renombrarlo por ``.env`` y colocar en este último los 
@@ -426,7 +426,7 @@ php artisan migrate
 ```
 
 > Nos preguntará si estamos seguros de correr este comando pues estamos en un entorno de producción, escribimos ``yes``
-> y damos ``Enter``.
+> y damos <kbd>Enter</kbd>.
 
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-9.png)
 

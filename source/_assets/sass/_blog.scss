@@ -68,3 +68,11 @@ ol {
 .share-btn > a:hover {
   cursor: pointer;
 }
+
+code {
+  @apply bg-purple-200 not-italic;
+}
+
+kbd {
+  @apply py-1 px-2 bg-yellow-200 rounded border-b-2 border-yellow-500 text-xs not-italic;
+}

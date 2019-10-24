@@ -158,7 +158,7 @@ el listado de paquetes.
  
      sudo apt-get install nginx
      
-Nos preguntará si queremos continuar, presionamos `Enter`  para que procesa a instalarse. 
+Nos preguntará si queremos continuar, presionamos <kbd>Enter</kbd>  para que procesa a instalarse. 
 Tan simple como esto. De hecho, ahora que tenemos nuestro servidor web instalado, si accedemos a la IP
 de nuestro servidor desde nuestro navegador, veremos que Nginx nos da la bienvenida :). 
 
@@ -178,7 +178,7 @@ a esto instalaremos [MySQL](https://es.wikipedia.org/wiki/MySQL).
 #### Instalación
 
 Para instalarlo, volveremos a utilizar APT. A la fecha de este artículo, la versión es la v5.7.27.
-Escribimos en consola (y apretamos `Enter` para aceptar):
+Escribimos en consola (y apretamos <kbd>Enter</kbd> para aceptar):
 
     sudo apt-get install mysql-server
 
@@ -197,7 +197,7 @@ aplicar estos ajustes solo ejecuta:
     sudo mysql_secure_installation
 
 Nos preguntará si queremos activar el plugin que valida la seguridad/fortaleza de nuestras contraseñas. Dado
-que nosotros gestionaremos esto conscientemente, podemos omitir esto. Escribimos `n` y le datemos `Enter`.
+que nosotros gestionaremos esto conscientemente, podemos omitir esto. Escribimos `n` y le damos <kbd>Enter</kbd>.
 
 Acto seguido nos pedirá que establezcamos una contraseña (y que la verifiquemos) para el usuario _root_.
 
@@ -206,13 +206,13 @@ Acto seguido nos pedirá que establezcamos una contraseña (y que la verifiquemo
 
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-4-1.png)
 
-Acto seguido preguntará si queremos remover "usuarios anónimos". Escribimos `y` (+ `Enter`).
+Acto seguido preguntará si queremos remover "usuarios anónimos". Escribimos `y` (+ <kbd>Enter</kbd>).
 
-Luego, nos preguntará si queremos "desactivar el acceso remoto en modo root". Escribimos `y` (+ `Enter`).
+Luego, nos preguntará si queremos "desactivar el acceso remoto en modo root". Escribimos `y` (+ <kbd>Enter</kbd>).
 
-A continuación nos preguntará si queremos remover "las bases de datos de prueba". Escribimos `y` (+ `Enter`).
+A continuación nos preguntará si queremos remover "las bases de datos de prueba". Escribimos `y` (+ <kbd>Enter</kbd>).
 
-Por último, nos consulta si queremos "recargar la table de privilegios". Nuevamente, escribimos `y` (+ `Enter`).
+Por último, nos consulta si queremos "recargar la table de privilegios". Nuevamente, escribimos `y` (+ <kbd>Enter</kbd>).
 
 Si todo marchó correctamente, la terminal te mostrará el mensaje **"All Done!"**
 
@@ -261,11 +261,11 @@ La línea que necesitamos editar es la siguiente:
 
     ;cgi.fix_pathinfo=1
 
-Puedes buscarla manualmente, o si es que utilizamos Nano, podemos apretar `CTRL+W` e ingresamos 
-`cgi.fix_pathinfo=` para finalmente apretar `Enter`.
+Puedes buscarla manualmente, o si es que utilizamos Nano, podemos apretar <kbd>Ctrl</kbd> + <kbd>W</kbd> e ingresamos 
+`cgi.fix_pathinfo=` para finalmente apretar <kbd>Enter</kbd>.
 
-> Como consejo: Si es que buscas pegar texto en la consola, podrás notar que `CTRL+V` no
-> funciona, en cambio podemos utilizar `SHIFT+INSERT`.
+> Como consejo: Si es que buscas pegar texto en la consola, podrás notar que <kbd>Ctrl</kbd> + <kbd>V</kbd> no
+> funciona, en cambio podemos utilizar <kbd>Shift</kbd> + <kbd>Insert</kbd>.
 
 Esto nos llevará hasta la línea correcta. Si nos fijamos, está comentada (al inicio de la línea hay un
 `;`) y tiene como valor `1`. Así que vamos a modificarla para que quede de este modo:
@@ -274,7 +274,7 @@ Esto nos llevará hasta la línea correcta. Si nos fijamos, está comentada (al 
 
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-6-2.png)
 
-Para guardar los cambios apretaremos primero `CTRL+X`, luego tipeamos `Y` y por último apretamos `Enter`.
+Para guardar los cambios apretaremos primero <kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>.
 
 Para que los cambios surtan efecto, reiniciaremos `php-fpm` de la siguiente manera:
 
@@ -358,7 +358,7 @@ esto le dirá a Nginx que ignore los archivos `.htaccess`. Esto es porque estos 
 
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-4.png)
 
-Ahora guardaremos nuestros cambios (`CTRL+X`, luego tipeamos `Y` y por último apretamos `Enter`)
+Ahora guardaremos nuestros cambios (<kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>)
 para poder validar si nuestra configuración es correcta. Para hacer esto ingresamos:
 
     sudo nginx -t
@@ -414,7 +414,7 @@ Para esto volveremos a modificar Nginx actualizando lo siguiente:
         
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-2.png)
 
-Guardaremos nuestros cambios (`CTRL+X`, luego tipeamos `Y` y por último apretamos `Enter`). Luego de esto,
+Guardaremos nuestros cambios (<kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>). Luego de esto,
 procederemos a reiniciar Nginx para que los cambios surtan efecto.
 
     sudo service nginx restart
