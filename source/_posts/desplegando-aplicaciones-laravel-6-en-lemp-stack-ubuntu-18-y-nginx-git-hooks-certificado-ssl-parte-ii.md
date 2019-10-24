@@ -177,7 +177,7 @@ código está listo para ser subido- podemos proceder a subir nuestro código.
 git push production master
 ```
 
-#### Verificando que nuestro Git Hook funciona
+#### Verificando que nuestro Git Hook funcione
 
 Tenemos que comprobar que nuestro Hook funciona, de lo contrario, todo esto habría sido en vano ;). Para esto,
 vamos a volver a acceder a nuestro servidor mediante `SSH`:
@@ -383,9 +383,9 @@ Así que nuestro ``.env`` quedaría de la siguiente forma (a groso modo):
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-8.png)
  
 
-#### Nuestra llave de encriptación
+#### Generando nuestra llave de encriptación
 
-Tal como mencioné anteriormente, vamos a generar nuestra llave de encripción con ayuda de un comando del propio
+Tal como mencioné anteriormente, vamos a generar nuestra llave de encriptación con ayuda de un comando del propio
 Laravel. Para esto ejecutamos:
 
 ```bash
@@ -436,7 +436,7 @@ Dado que estoy subiendo una instalación fresca de Laravel, en mi caso solo migr
 #### Poblando nuestra base de datos
 
 Podemos poblar nuestra base de datos mediante [Seeders](https://laravel.com/docs/seeding). Si es que tuvieras 
-configurado tus _seeders_ para poblar tus tablas maestras, es buen momento de correrlos. Para esto hacemos:
+configurado tus _seeders_ para poblar tus tablas maestras, es buen momento de correrlos. Para esto haríamos:
 
 ```bash
 php artisan db:seed
@@ -455,11 +455,11 @@ instancia del -en mi caso- modelo ``User``, que es el que tengo como tabla princ
 último guardaremos en la base de datos:
 
 ```bash
-$user = new App\User;
-$user->name = 'Mesut Özil';
-$user->email = 'mesut.ozil@arsenal.com';
-$user->password = Hash::make('assist-king');
-$user->save();
+$u = new App\User;
+$u->name = 'Mesut Özil';
+$u->email = 'mesut.ozil@arsenal.com';
+$u->password = Hash::make('assist-king');
+$u->save();
 
 exit
 ```
@@ -493,9 +493,9 @@ quede claro qué hacemos en cada paso.
 > Es importante saber el **QUÉ**, pero más importante aún, saber el **POR QUÉ** de lo que hacemos.
 
 Ya tenemos nuestra aplicación funcionando. Solo nos queda configurar nuestro dominio en nuestra app y agregarle un
-certificado SSL a nuestra aplicación. Esto lo veremos en la siguiente (y última) **Parte III**. 
+certificado SSL a nuestra aplicación. Esto lo veremos en la tercera -y última- **Parte III**. 
 
-Si es que tienes dudas sobre los pasos anteriores, visita la [Parte I (Instalación y configuración de LEMP Stack)](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-i/).
+Si es que tienes dudas sobre los pasos anteriores, visita la [Parte I (Instalación y configuración de LEMP Stack)](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-i/)
 de la guía.
 
 Cualquier comentario, observación, pregunta y/o aclaración es bien recibida así que.. nos vemos 💪😉.

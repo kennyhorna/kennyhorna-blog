@@ -1,6 +1,6 @@
 ---
 extends: _layouts.category
-title: HPP
+title: PHP
 description: Mis artículos relacionados con PHP.
 ---
 
