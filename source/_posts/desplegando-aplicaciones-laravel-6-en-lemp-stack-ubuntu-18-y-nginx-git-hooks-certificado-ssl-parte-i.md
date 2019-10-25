@@ -16,9 +16,10 @@ Esta guía está basada en la realizada por
 la cual me ayudó mucho en su momento.
 
 Para facilitar la lectura, he dividido esta guía en tres partes:
-- **Parte I: Instalación y configuración de LEMP Stack** _(estamos aquí)_ 
+
+- **Parte I: Instalación y configuración de LEMP Stack** _(Estamos aquí)_ 
 - [Parte II: Instalación y configuración de Laravel + Git Hooks](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-ii/)
-- Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel
+- [Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-iii/)
 
 En esta primera parte nos enfocaremos en la creación y configuración de nuestro VPS, así como también la
 instalación y configuración de LEMP Stack.
@@ -451,5 +452,6 @@ Por último, le diremos que lo comience a utilizar haciendo:
 ## Cierre
 
 Con todo esto realizado ya tenemos todo listo para subir, instalar y configurar nuestra aplicación Laravel 
-en nuestro recientemente configurado VPS. Estos pasos lo realizaremos en la siguiente parte de este
-tutorial &#128515;.
+en nuestro recientemente configurado VPS. Estos pasos lo realizaremos en la siguiente parte de esta mini-serie &#128515;:
+
+- [Parte II: Instalación y configuración de Laravel + Git Hooks](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-ii/)

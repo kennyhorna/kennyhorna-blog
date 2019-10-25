@@ -5,7 +5,7 @@ title: "Desplegando Laravel con LEMP Stack - Parte II: Instalación y configurac
 date: 2019-10-23
 description: Esta es la segunda parte de la guía sobre como configurar un VPS utilizando LEMP Stack para servir una aplicación Laravel. En esta ocasión nos enfocaremos en la configuración de Git y Laravel.  
 cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02.png
-featured: true
+featured: false
 categories: [despliegue, tutoriales, laravel, php]
 ---
 
@@ -15,8 +15,8 @@ de Laravel y de nuestro entorno de producción para poder servir correctamente n
 Los artículos de esta mini-serie son los siguientes:
 
 - [Parte I: Instalación y configuración de LEMP Stack](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-i/) 
-- **Parte II: Instalación y configuración de Laravel + Git Hooks** _(estamos aquí)_
-- Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel
+- **Parte II: Instalación y configuración de Laravel + Git Hooks** _(Estamos aquí)_
+- [Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-iii/)
 
 Sin más que añadir, continuemos.
 
@@ -493,7 +493,9 @@ quede claro qué hacemos en cada paso.
 > Es importante saber el **QUÉ**, pero más importante aún, saber el **POR QUÉ** de lo que hacemos.
 
 Ya tenemos nuestra aplicación funcionando. Solo nos queda configurar nuestro dominio en nuestra app y agregarle un
-certificado SSL a nuestra aplicación. Esto lo veremos en la tercera -y última- **Parte III**. 
+certificado SSL a nuestra aplicación. Esto lo veremos en la tercera -y última- parte:
+
+- [Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-iii/) 
 
 Si es que tienes dudas sobre los pasos anteriores, visita la [Parte I (Instalación y configuración de LEMP Stack)](/blog/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-git-hooks-certificado-ssl-parte-i/)
 de la guía.
