@@ -27,7 +27,7 @@ Sin más que añadir, continuemos.
 2. Nginx o Apache instalado. Dado que montamos nuestro sitio sobre LEMP stack, ya tenemos Nginx instalado y configurado ✔️
 3. Un nombre de dominio registrado y operativo. Puedes comprar uno en [GoDaddy](http://godaddy.com/)
 , [Namecheap](http://namecheap.com/), [Google Domains](https://domains.google/), entre otros. En mi caso utilizaré
-un sub-dominio de un dominio que poseo: ``site.kennyhorna.com``.
+un sub-dominio de uno de los dominios que poseo: ``site.kennyhorna.com``.
 
 ### ¿Qué es Let's Encrypt?
 
@@ -54,10 +54,11 @@ Para el caso de dominios de primer nivel, es recomendable que apuntes la versió
 - _A record_ en **mi-dominio.com** apuntando hacia la IP pública de tu servidor.
 - _A record_ en **www.mi-dominio.com** apuntando hacia la IP pública de tu servidor.
   
-En el caso de un sub-dominio, bastará con que lo apuntes a tu IP pública.
+En el caso de un sub-dominio, bastará con que lo apuntes a tu IP pública de tu servidor.
 
-Dado yo lo haré en un sub-dominio y que mi dominio (``kennyhorna.com``) tiene los DNS apuntando los de hacia Netlify, 
-es por ahí por donde apuntaré al sub-dominio hacia mi servidor:
+Dado que yo utilizaré un sub-dominio, y ya que mi dominio (``kennyhorna.com``) tiene los DNS apuntando hacia los de
+Netlify, es por medio de esa plataforma por donde apuntaré al sub-dominio hacia mi servidor. En tu caso puedes 
+hacerlo desde donde gestiones tus dominios:
 
 ![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-1.png)
  
