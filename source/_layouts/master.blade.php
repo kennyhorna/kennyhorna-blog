@@ -38,7 +38,7 @@
 </head>
 
 <body>
-@php(setlocale(LC_ALL, 'es_ES'))
+@php(setlocale(LC_ALL, 'es_ES.UTF-8'))
 <div id="vue-app" class="flex flex-col justify-between min-h-screen text-gray-800 leading-normal font-sans bg-gray-100">
   <header class="flex items-center shadow bg-white border-b h-20 py-4 sticky top-0 z-50" role="banner">
     <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
@@ -67,7 +67,7 @@
   <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
     <ul class="flex flex-col md:flex-row justify-center list-reset">
       <span class="md:mr-2">
-        &copy; Kenny Horna {{ date('Y') }}. Construído con <a href="http://jigsaw.tighten.co/">Jigsaw</a> y <a
+        &copy; Kenny Horna {{ date('Y') }}. Construido con <a href="http://jigsaw.tighten.co/">Jigsaw</a> y <a
             href="https://tailwindcss.com/">TailwindCSS</a>.
       </span>
     </ul>
