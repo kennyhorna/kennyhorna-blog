@@ -1,10 +1,17 @@
 @extends('_layouts.master')
 
 @push('meta')
+  <meta property="og:locale" content="es_ES" />
   <meta property="og:title" content="{{ $page->title }}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="{{ $page->getUrl() }}"/>
   <meta property="og:description" content="{{ $page->description }}"/>
+  <meta property="og:image" content="{{ $page->cover_image }}"/>
+  <meta property="og:image:width" content="1100"/>
+  <meta property="og:image:height" content="440"/>
+  @foreach($page->categories as $i => $tag)
+    <meta property="article:tag" content="{{ $tag }}"/>
+  @endforeach
 @endpush
 
 @section('body')
@@ -17,7 +24,7 @@
       <div class="w-full p-6 md:p-12 md:pb-6">
         <h1 class="leading-none mb-2 text-4xl text-center md:text-left md:text-5xl">{{ $page->title }}</h1>
 
-        <p class="text-gray-700 text-md md:mt-0">{{ $page->author }}
+        <p class="text-gray-700 text-md md:mt-0"><a href="/acerca-de-mi">{{ $page->author }}</a>
           • {{ strftime("%d de %B, %Y", $page->getDate()->getTimestamp()) }}</p>
         @if ($page->categories)
           @foreach ($page->categories as $i => $category)

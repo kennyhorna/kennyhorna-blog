@@ -5,7 +5,7 @@ title: "Parte III: Instalación de certificados SSL gratuitos y ajustes finales 
 date: 2019-10-25
 description: Esta es la tercera y última parte de la guía sobre como configurar un VPS utilizando LEMP Stack para servir una aplicación Laravel. En esta ocasión nos enfocaremos en la creación e instalación de nuestro certificado SSL gratuito y de ajustar nuestra aplicación par que lo utilice.  
 cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03.png
-featured: true
+featured: false
 categories: [despliegue, tutoriales, laravel, php]
 ---
 

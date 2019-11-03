@@ -1,379 +1,239 @@
 ---
 extends: _layouts.post
 section: content
-title: Creando sitios estáticos con Jigsaw
-date: 2019-10-13
-description: Hace algún tiempo tenía ganas de probar Jigsaw, un proyecto de Tighten, así que describiré como cree este mismo blog de la mano de esta herramienta.
-cover_image: /assets/images/posts/cover-jigsaw.jpg
-featured: false
-categories: [jigsaw, blade, despliegue, tutoriales, php]
+title: Novedades de PHP 7.4
+date: 2019-11-03
+description: PHP 7.4 es la última versión de la serie 7.X antes de la esperada PHP 8, así que indagaremos en las novedades y cambios que nos trae. 
+cover_image: /assets/images/posts/0005/novedades-php-74.png
+featured: true
+categories: [php]
 ---
 
-Hace algún tiempo tenía ganas de probar Jigsaw, así que describiré como creé este mismo blog de la mano de 
-esta herramienta.
+PHP 7.4 es la última versión de la serie 7.X antes de la esperada PHP 8, así que indagaremos en las novedades
+y cambios que nos trae.
 
-### ¿Qué es un Sitio Estático?
+### Sobre PHP 7.4
+El lanzamiento de la nueva versión está pensada para el 28 de noviembre del 2019. 
 
-Los sitios web estáticos son aquellos sitios enfocados principalmente a mostrar una información permanente, 
-donde el usuario se limita a obtener la información, sin poder realizar mayor interacción con la página web
-visitada. Entre estos sitios podemos listar por ejemplo al website de una empresa, a un simple blog o a la 
-web de la documentación de un proyecto. 
+## Principales novedades
 
-### ¿Qué es Jigsaw?
-Jigsaw es un proyecto _open-source_ desarrollado por el genial equipo de [Tighten](http://tighten.co). 
-Tal como mencionan en la [web del proyecto](https://jigsaw.tighten.co), Jigsaw es un framework para la 
-rápida creación de sitios estáticos utilizando las mismas herramientas que hacen posibles nuestras 
-aplicaciones web.
+### -> Funciones Flecha
+Las funciones flechas (Arrow Functions) son muy útiles para resumir la sintaxis de las funciones mono-lineales.
 
-### ¿Cómo funciona?
+Si antes tenías que escribir algo de este estilo:
+````php
+array_map(function (User $usuario) { 
+    return $usuario->id; 
+}, $usuarios)
+````
+Ahora lo puedes hacer de manera más simple:
+````php
+array_map(fn (User $usuario) => $usuario->id, $usuarios)
+````
 
-Jigsaw hace uso de [Laravel Blade](https://laravel.com/docs/blade) para generar las vistas, por lo que podemos
-usar todo el poder de este componente tal como lo haríamos en Laravel.
+Hay algunas observaciones interesantes de esta adición:
 
-Por otro lado, viene pre-configurado con [TailwindCSS](https://tailwindcss.com), un frameworks de CSS que
-facilita bastante la aplicación de estilos (ya ahondaré en Tailwind en un artículo futuro). Tailwind
-nos ayudará a aplicar estilos de manera rápida y consistente para personalizar nuestro sitio a placer.
+- Pueden siempre acceder al contexto padre, por lo que no es necesario pasar elementos mediante el keyword ``use``.
+- Solo deben contener una expresión, que a su vez, es el valor retornado.
+- ``$this`` está disponible tal como sucede en _closures_ normales.
 
-Sin más que añadir, manos a la obra.
-
-### Instalación
-
-> Para el propósito de esta guía asumiré que ya tienes instalado Composer y -a la fecha de publicación de
-> este artículo- PHP 7.1 (o superior).
-
-
-Para instalar Jigsaw, haremos uso de la consola para crearemos un directorio nuevo en donde instalaremos
-el framework:
-
-```bash
-mkdir mi-sitio
-cd mi-sitio
-composer require tightenco/jigsaw
-```
-
-Esperamos unos segundos -o minutos, dependiendo de la calidad de tu conexión- y ya tendremos el código base 
-del proyecto. 
-
-A continuación procederemos a inicializar Jigsaw. 
-
-Aquí podemos optar por una versión limpia 
-o utilizar algunas de las plantillas iniciales que tienen a disposición como "Blog", un sitio básico para un
-blog o "Docs", que te da la configuración inicial de un sitio de documentación. En mi caso escogeré "Blog",
-pues de paso nos sirve también para familiarizarnos con el framework.
-
-```bash
-./vendor/bin/jigsaw init blog
-```
+Como ejemplo podemos tomar la siguiente función que tan solo multiplica los valores de un arreglo por un factor:
  
-Luego de la instalación, tu directorio `mi-sitio` tendrá la siguiente estructura:
+```php
+$numeros = [1, 2, 3, 4, 5];
+$factor = 2;
 
-<div class="files">
-    <div class="folder folder--open">source
-        <div class="folder folder--open">_assets
-            <div class="folder folder--open">js
-                <div class="folder">Components</div>
-                <div class="file">main.js</div>
-            </div>
-            <div class="folder folder--open">sass
-                <div class="file">main.scss</div>
-                <div class="file">...</div>
-            </div>
-        </div>
-        <div class="folder">_categories</div>
-        <div class="folder">_components</div>
-        <div class="folder folder--open">_layouts
-            <div class="file">master.blade.php</div>
-            <div class="file"> ... </div>
-        </div>
-        <div class="folder">_nav</div>
-        <div class="folder">_posts</div>
-        <div class="folder folder--open">assets
-            <div class="folder folder--open">build
-                <div class="folder folder--open">js
-                    <div class="file">main.js</div>
-                </div>
-                <div class="folder folder--open">sass
-                    <div class="file">main.css</div>
-                </div>
-                <div class="file">mix-manifest.json</div>
-            </div>
-            <div class="folder folder--open">images
-                <div class="file">jigsaw.png</div>
-            </div>
-            <div class="folder">img</div>
-        </div>
-        <div class="file">index.blade.php</div>
-        <div class="file"> ... </div>
-    </div>
-    <div class="folder">tasks</div>
-    <div class="folder">vendor</div>
-    <div class="file">bootstrap.php</div>
-    <div class="file">composer.json</div>
-    <div class="file">composer.lock</div>
-    <div class="file">config.php</div>
-    <div class="file">package.json</div>
-    <div class="file">webpack.mix.js</div>
-</div>
+array_map(function ($numero) use ($factor) { 
+    return $numero * factor; 
+}, $numeros);
+```
 
-Como puedes notar, todo lo relacionado al blog en sí lo puedes encontrar en el directorio `/source`,
-Es ahí donde crearemos nuestros artículos y colecciones rápidamente utilizando 
-[markdown](https://es.wikipedia.org/wiki/Markdown).
-
-### Configuración básica
-
-Para configurar los parámetros básicos del proyecto, vamos a editar el `config.php` para indicarle
-los parámetros básicos del sitio:
+Si notamos, en PHP 7.3 o inferior, teníamos que indicarle a nuestra función anónima la existencia de ``$factor`` 
+mediante el ``use`` pues de otro modo no existía en el contexto de la función cierre. 
+En cambio, ahora podríamos cogerlo directamente del contexto padre:
 
 ```php
-# config.php
+$numeros = [1, 2, 3, 4, 5];
+$factor = 2;
 
-return [
-    'baseUrl' => 'http://kennyhorna.test',
-    'production' => false,
-    'siteName' => "Kenny Horna.",
-    'siteDescription' => 'Un lugar donde comparto las cosas que me interesan.',
-    'siteAuthor' => 'Kenny Horna',
-    // ...
-];
+array_map(fn ($numero) => $numero * $factor, $numeros);
 ```
 
-### Personalización
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/arrow_functions_v2)
 
-#### Plantillas
+### -> Propiedades de tipo clase _insinuadas_
+Las variables de tipo clase ahora también pueden ser insinuadas (_type-hinted_):
 
-Dado que Jigsaw utiliza Blade, podemos modificar nuestros templates tal como lo hacemos en Laravel:
-
-<div class="files">
-    <div class="folder folder--open">source
-        <div class="folder">_assets
-        </div>
-        <div class="folder">_categories</div>
-        <div class="folder">_components</div>
-        <div class="folder folder--open focus">_layouts
-            <div class="file">category.blade.php</div>
-            <div class="file">master.blade.php</div>
-            <div class="file">post.blade.php</div>
-            <div class="file">rss.blade.php</div>
-        </div>
-        <div class="folder folder--open focus">_nav
-            <div class="file">menu.blade.php</div>
-            <div class="file">menu-responsive.blade.php</div>
-            <div class="file">menu-toggle.blade.php</div>
-        </div>
-        <div class="folder">_posts</div>
-        <div class="folder">assets</div>
-        <div class="file">404.blade.php</div>
-        <div class="file">about.blade.php</div>
-        <div class="file">blog.blade.php</div>
-        <div class="file">favicon.ico</div>
-        <div class="file">index.blade.php</div>
-    </div>
-</div>
-
-Teniendo a disposición variables tales como `$page` entre otras más:
-
-```html
-<meta property="og:title" content="{{ $page->title }}" />
-```
-```html
-@if ($page->cover_image)
-  <img src="{{ $page->cover_image }}" alt="{{ $page->title }}" class="mb-2 w-full">
-@endif
-```
-#### Estilos
-
-Como mencioné previamente, Jigsaw utiliza Tailwind. Con Tailwind podemos editar de manera sencilla todo
-el aspecto visual de nuestro sitio, como por ejemplo la plantilla principal, que por defecto es 
-`source/_layouts/master.blade.php`. A manera de ejemplo, podemos editar la cabecera para que tenga una
-posición fija en la parte superior sin importar si nos desplazamos hacia abajo:
-
-```html
-# source/_layouts/master.blade.php
-
-<!-- ... -->
-<div 
-  class="flex flex-col justify-between min-h-screen text-gray-800 leading-normal font-sans bg-gray-100"
->
-  <header 
-    class="flex items-center shadow bg-white border-b h-20 py-4 sticky top-0 z-50" 
-    role="banner"
-  >
-    <!-- ... -->
-  </header>
-  <!-- ... -->
-</div>
-<!-- ... -->
-```
-
-Otra de las cosas que hice fue la de personalizar el scrollbar de la sección de código, para esto añadí
-lo siguiente en `source/_assets/sass/_blog.scss`:
-
-```css
-pre {
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
-    @apply bg-purple-900 rounded-full;
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    @apply bg-purple-900 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-purple-700 rounded-full;
-  }
+```php
+class ClaseA
+{
+    public string $nombre;
+    public User $usuario;
+    public ?Order $orden;
 }
 ```
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/typed_properties_v2)
 
-### Generando assets para previsualizar el sitio
-
-Para poder construir los recursos estáticos del sitio, primero instalaremos las dependencias
-necesarias:
-
-```bash
-npm install 
-```
-
-Para luego generar los recursos:
-```bash
-npm run dev 
-```
-
-Al finalizar esto, habremos generado un nuevo directorio: `build_local`. Acá se alojará todo el
-código sin optimizar para poder probar localmente mientras modificamos nuestro sitio.
-
-> Si es que deseas ver los cambios en vivo mientras editas tu código, puedes hacer uso de este
-> otro comando que recompilará el código cada vez que detecte cambios en tus archivos:
->  ```bash
->  npm run watch 
->  ```
-
-### Creando contenido para nuestro sitio
-
-Como mencioné anteriormente, escribiremos nuestros artículos utilizando
-[Markdown](https://es.wikipedia.org/wiki/Markdown). 
-
-Para agregar un nuevo artículo ta solo tenemos que crear un nuevo archivo bajo`sources/_posts`, 
-por ejemplo `creando-sitios-con-jigsaw.md`. Jigsaw tomará el nombre del archivo como la url relativa 
-con la cual acceder al artículo, no es necesario que le indiques más :). De este modo, para acceder
-a nuestro artículo nos dirigirnos hacia `http://misitio.com/blog/creando-sitios-con-jigsaw`. 
-
-> Podemos editar el formato de nuestras URLs desde la configuración de nuestras "colecciones" las
-> cuales podemos encontrar en la configuración `config.php`
-> ```php
->   'posts' => [
->        'author' => 'Kenny Horna', // Autor por defecto, en caso no se indique
->        'sort' => '-date', // modo de orden
->        'path' => 'blog/{filename}', // formato de rutas
->    ],
-> ```
-
-En la cabecera de estos archivos configuraremos los detalles del artículo, para luego continuar
-con el cuerpo del artículo en sí utilizando Markdown:
-
-```markdown
----
-extends: _layouts.post
-section: content
-title: Creando sitios estáticos con Jigsaw
-date: 2019-10-12
-description: Hace algún tiempo tenía ganas de probar Jigsaw, (...)
-cover_image: /assets/images/jigsaw.png
-featured: true
---- 
-
-Hace algún tiempo tenía ganas de probar Jigsaw, así que describiré como creé este
-mismo blog de la mano de esta herramienta.
-
-### ¿Qué es un Sitio Estático?
-
-Los sitios *web estáticos* son aquellos sitios enfocados principalmente a mostrar una
-información permanente, donde el **usuario** se limita a obtener la información, sin poder 
-realizar mayor interacción con la página web (...)
-```
- 
-### Preparando para exportarlo 
-
-Una vez hayas finalizado tus modificaciones y quieras construir la versión optimizada de producción
-para lanzarla al mundo, ejecutamos el siguiente comando que generará otro directorio (`build_production`)
-donde se alojarán los recursos estáticos que servirán a nuestro servidor para que muestre el contenido:
-
-```bash
-npm run production 
-```
- 
- Este directorio será el que aloje todo nuestro contenido optimizado, y por tanto, es al que debe
- apuntar nuestro servidor.
-
-### Desplegando nuestro sitio
-
-Puedes desplegar tu sitio en cualquier servidor. Si nos ceñimos a sitios estáticos, hay unas cuantas
-alternativas gratuitas donde podemos alojar sin costo alguno nuestro sitio. Entre estos tenemos a
-[Github Pages](https://pages.github.com/) y [Netlify](https://www.netlify.com/). Ambos proveen este
-servicio de manera gratuita (con ciertas limitaciones, pero suficientes para nuestro caso) proveyendo
-también certificados SSL para nuestro sitio.
-
-<img src="/assets/images/posts/netlify-1.png" class="w-full" alt="Netlify service" />
-
-En nuestro caso, utilizaremos este último: Netlify.
-
-Antes de ir a Netlify, crearemos un nuevo archivo (`netlify.toml`) en la raíz del directorio de nuestro 
-proyecto donde se alojará la configuración de Netlify para que se automaticen las actualizaciones de 
-nuestro sitio.
-
-> Si es que no lo has hecho hasta ahora, también necesitarás subir tu código a un repositorio online, en
-> mi caso utilizaré Github (puedes ver el código fuente de este proyecto 
-> [aquí](https://github.com/kennyhorna/kennyhorna-blog)). 
-
-```
-[build]
-
-command = "npm run production"
-publish = "build_production"
-environment = { PHP_VERSION = "7.2" }
-```
-
-Agregamos este archivo a nuestro repositorio y ahora ya estamos listos para desplegar nuestro site.
-
-Nos dirigimos a [www.netlify.com](www.netlify.com) y accedemos -en caso no tengas una cuenta aún tendrás
-que registrarte- y le damos a **"New site from Git"**.
-
-![](/assets/images/posts/netlify-step-1.png)
-
-Luego de esto, para _Despliegue Continuo_ conectaremos con el repositorio online que utilizamos para
-alojar nuestro código, en mi caso lo tengo en GitHub (otorgamos permisos, si es que no lo hicimos aún)
-y seleccionamos el repositorio que deseamos.
-
-![](/assets/images/posts/netlify-step-2.png)
-
-Dado que ya tenemos nuestro `netlify.toml` configurado, notaremos que se pre-configuraron el resto de campos
-por lo que solo queda continuar el proceso. 
-
-Una vez hecho esto, esperamos unos minutos hasta que Netlify construya el sitio. Al finalizar el proceso, nos
-otorgará una url del estilo `XXXXXXXXXX.netlify.com` la cual podemos personalizar en caso querramos. También
-podemos conectar un dominio registrado anteriormente, o incluso, registrar uno nuevo a través de Netlify.
-
-#### Nota
-La url que utilizaremos en producción debemos de incluirla en el archivo de configuración correspondiente
-`config.production.php`. Esto es necesario pues todas las rutas se configurarán con esta url base:
+### -> Operador de extensión para arreglos
+Ahora es posible utilizar el operador de extensión (``...``) para los arreglos. Mira el siguiente ejemplo:
 
 ```php
- return [
-     'baseUrl' => 'https://kennyhorna.com', // <--
-     'production' => true,
- ];
+$a = [1, 2, 3];
+$b = [4, 5, 6];
+
+$numeros = [0, ...$a, ...$b, 7, 8, 9];
+
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 ```
 
-Para futuras actualizaciones en tu proyecto, como por ejemplo cuando publiques nuevos artículos, solo tendrás
-que hacer _push_ a tu repositorio y Netlify se encargará de actualizar tu sitio por ti. 
+**Observación**: Esto solo funcionará en arreglos con llaves numéricas.
 
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/spread_operator_for_array)
 
-## Conclusión
+### -> Operador de asignación de fusión nula
+Ahora tenemos un _operador de asignación de fusión nula_, una abreviatura para las operaciones de fusión nulas.
+Si antes hacíamos lo siguiente:
 
-Como hemos podido ver, la configuración de un sitio estático se agiliza bastante con Jigsaw, por lo que 
-definitivamente es una herramienta a tener en cuenta para proyectos estáticos rápidos. 
+```php
+$data['fecha'] = $data['fecha'] ?? new DateTime();
+```
+Ahora podemos hacerlo aún más corto: 
+```php
+$data['fecha'] ??= new DateTime();
+```
 
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/null_coalesce_equal_operator)
 
+### -> Separador literal numérico
+Ahora podemos utilizar el ``_`` para separar visualmente las cifras de valores numéricos. El motor de PHP
+simplemente ignorará los ``_``:
 
+```php
+$numeroSinFormato = 6120456.90;
+$numeroConFormato = 6_120_456.90;
+```
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/numeric_literal_separator)
+
+### -> Precarga
+Una de las más interesantes adiciones al core de PHP -a bajo nivel- es la precarga. Esto puede traer
+bastante beneficios a nivel de rendimiento.
+
+En resumen: Si utilizas algún framework, sus archivos tienen que ser cargados y enlazados con cada 
+request. La _precarga_ le permite al servidor cargar los archivos PHP en memoria al iniciar el servidor,
+de este modo, los tendrá permanentemente disponible para todos los futuros requests.
+
+La mejora de _performance_ trae un costo: Si realizas modificaciones en alguno de los archivos precargados,
+tendrás que reiniciar el servidor para que estos puedan ser nuevamente cargados. 
+
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/preload)
+
+### -> Serialización personalizada de objetos
+Dos nuevos métodos mágicos han sido incluídos: ``__serialize`` y ``__unserialize`` . 
+
+La diferencia entre estos métodos y ``__sleep`` y ``__wakeup`` puedes leerlo en detalle en la discusión
+del [RFC](https://wiki.php.net/rfc/custom_object_serialization).
+
+### -> Reflexión para referencias
+Librerías como el [var dumper de Symfony](https://symfony.com/doc/current/components/var_dumper.html) 
+dependen fuertemente de la API de reflexión para arrojar una variable de manera confiable. 
+
+Previamente, no era posible reflejar referencias de manera apropiada, resultando en que estas librerías
+dependan de "hacks" para poder detectarlas.
+
+PHP 7.4 añade la clase ``ReflectionReference`` que soluciona este inconveniente. 
+
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/reference_reflection)
+
+### -> Referencias débiles
+Las "referencias débiles" son referencias a objetos que no las previenen de ser destruidas.
+
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/weakrefs)
+
+### -> Función ``mb_str_split`` añadida
+Esta función provee la misma funcionalidad que ``str_split`` pero en strings multi-byte.
+This function provides the same functionality as str_split, but on multi-byte strings.
+
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/mb_str_split)
+
+### -> Registro de Hashing de contraseñas
+Se han realizado cambios internos al modo en que las librerías de _hashing_ son utilizadas, de modo
+que sea más fácil para el usuario el poder utilizarlas. De hecho, una nueva función ``password_algo`` 
+ha sido añadida la cual lista todos los algoritmos de contraseñas registradas. 
+
+> Puedes leer más sobre esta adición en el [RFC](https://wiki.php.net/rfc/password_registry)
+
+## Cambios y deprecaciones
+Así como hay nuevas funciones, también hay cosas que han sido modificadas, que dejarán de funcionar 
+en PHP 7.4 o se mostrarán con advertencia para luego ser "deprecadas" en PHP 8. 
+
+### - Precedencia de concatenación
+Si antes escribías esto:
+
+    echo "sum: " . $a + $b;
+
+PHP lo interpretaba así:
+
+    echo ("sum: " . $a) + $b;
+
+En PHP 8, lo hará del siguiente modo:
+
+    echo "sum :" . ($a + $b);
+
+PHP 7.4 mostrará una advertencia de deprecación al encontrar una expresión sin paréntesis (``(``/``)``)
+que contenga un operador (``+`` / ``-``) y que sea precedido por un ``.``.
+
+> Puedes leer más sobre esta modificación en el [RFC](https://wiki.php.net/rfc/concatenation_precedence)
+
+### - Operador ternario de asociación izquierda, deprecado
+
+El operador ternario tiene algunas inconsistencias. Este [RFC](https://wiki.php.net/rfc/ternary_associativity) 
+añade una alerta de deprecación que luego generará un error de compilación en PHP 8:
+
+    1 ? 2 : 3 ? 4 : 5;   // Deprecado
+    (1 ? 2 : 3) ? 4 : 5; // Ok
+
+> Puedes leer más sobre esta modificación en el [RFC](https://wiki.php.net/rfc/ternary_associativity)
+
+### - Se permitirán excepciones en ``__toString``
+Previamente, no se podían arrojar excepciones desde ``__toString``. Esto era por un antiguo artilugio que
+se implementó para dar solución a otro problema. El equipo de PHP ha corregido esto y ahora se podrán
+arrojar excepciones desde este método.
+
+> Puedes leer más sobre esta modificación en el [RFC](https://wiki.php.net/rfc/tostring_exceptions)
+
+### - Acceso a elementos de arreglos mediante llaves {}
+Antes, podías también acceder a elementos de tus arreglos haciendo esto:
+
+    $numeros = [1, 2];
+    echo $numeros[1]; // imprime 2
+    echo $numeros{1}; // también imprime 2
+     
+    $cadena = "kenny";
+    echo $cadena[0]; // imprime "k"
+    echo $cadena{0}; // también imprime "k"
+    
+A partir de ahora: ``$arreglo{indice}`` ya no sera posible. 
+
+Esto ya no será posible.
+
+> Puedes leer más sobre esta modificación en el [RFC](https://wiki.php.net/rfc/deprecate_curly_braces_array_access)
+
+### Resto de cambios
+
+Hay muchas otras adiciones, mejores, advertencias y deprecaciones, tales como:
+
+- Aviso al acceder a un array inválido ([RFC](https://wiki.php.net/rfc/notice-for-non-valid-array-container))
+- Mejoras a ``proc_open`` ([RFC](https://github.com/php/php-src/blob/PHP-7.4/UPGRADING#L319))
+- ``strip_tags`` ahora acepta arreglos ([RFC](https://github.com/php/php-src/blob/PHP-7.4/UPGRADING#L259))
+- ``ext-hash`` activado por defecto ([RFC](https://wiki.php.net/rfc/permanent_hash_ext))
+- Mejoras a ``password_hash`` ([RFC](https://wiki.php.net/rfc/sodium.argon.hash)) 
+- Muchas deprecaciones pequeñas/menores ([RFC](https://wiki.php.net/rfc/deprecations_php_7_4))
+
+Entre muchos otros.
+
+## Cierre
+
+Como puedes notas, PHP 7.4 trae consigo interesantes adiciones y modificaciones que, en mi opinión, seguirá
+impulsando del resurgimiento de este gran lenguaje de programación.
+
+Como siempre, cualquier comentario, duda, aclaración o corrección es bienvenida.
