@@ -4,7 +4,7 @@ section: content
 title: Creando sitios estáticos con Jigsaw
 date: 2019-10-13
 description: Hace algún tiempo tenía ganas de probar Jigsaw, un proyecto de Tighten, así que describiré como cree este mismo blog de la mano de esta herramienta.
-cover_image: /assets/images/posts/cover-jigsaw.jpg
+cover_image: /assets/images/posts/0001/cover-jigsaw.jpg
 featured: false
 categories: [jigsaw, blade, despliegue, tutoriales, php]
 ---
@@ -227,7 +227,7 @@ pre {
 }
 ```
 
-### Generando assets para previsualizar el sitio
+### Generando assets para pre-visualizar el sitio
 
 Para poder construir los recursos estáticos del sitio, primero instalaremos las dependencias
 necesarias:
@@ -315,7 +315,7 @@ alternativas gratuitas donde podemos alojar sin costo alguno nuestro sitio. Entr
 servicio de manera gratuita (con ciertas limitaciones, pero suficientes para nuestro caso) proveyendo
 también certificados SSL para nuestro sitio.
 
-<img src="/assets/images/posts/netlify-1.png" class="w-full" alt="Netlify service" />
+<img src="/assets/images/posts/0001/netlify-1.png" class="w-full" alt="Netlify service" />
 
 En nuestro caso, utilizaremos este último: Netlify.
 
@@ -340,13 +340,13 @@ Agregamos este archivo a nuestro repositorio y ahora ya estamos listos para desp
 Nos dirigimos a [www.netlify.com](www.netlify.com) y accedemos -en caso no tengas una cuenta aún tendrás
 que registrarte- y le damos a **"New site from Git"**.
 
-![](/assets/images/posts/netlify-step-1.png)
+![](/assets/images/posts/0001/netlify-step-1.png)
 
 Luego de esto, para _Despliegue Continuo_ conectaremos con el repositorio online que utilizamos para
 alojar nuestro código, en mi caso lo tengo en GitHub (otorgamos permisos, si es que no lo hicimos aún)
 y seleccionamos el repositorio que deseamos.
 
-![](/assets/images/posts/netlify-step-2.png)
+![](/assets/images/posts/0001/netlify-step-2.png)
 
 Dado que ya tenemos nuestro `netlify.toml` configurado, notaremos que se pre-configuraron el resto de campos
 por lo que solo queda continuar el proceso. 

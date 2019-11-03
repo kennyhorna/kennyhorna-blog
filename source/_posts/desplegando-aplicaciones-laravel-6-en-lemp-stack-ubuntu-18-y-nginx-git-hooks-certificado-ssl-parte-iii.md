@@ -4,7 +4,7 @@ section: content
 title: "Parte III: Instalación de certificados SSL gratuitos y ajustes finales de Laravel"
 date: 2019-10-25
 description: Esta es la tercera y última parte de la guía sobre como configurar un VPS utilizando LEMP Stack para servir una aplicación Laravel. En esta ocasión nos enfocaremos en la creación e instalación de nuestro certificado SSL gratuito y de ajustar nuestra aplicación par que lo utilice.  
-cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03.png
+cover_image: /assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03.png
 featured: false
 categories: [despliegue, tutoriales, laravel, php]
 ---
@@ -60,7 +60,7 @@ Dado que yo utilizaré un sub-dominio, y ya que mi dominio (``kennyhorna.com``) 
 Netlify, es por medio de esa plataforma por donde apuntaré al sub-dominio hacia mi servidor. En tu caso puedes 
 hacerlo desde donde gestiones tus dominios:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-1.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-1.png)
  
  De este modo, ya habré mapeado para el sub-dominio ``site.kennyhorna.com`` apunte hacia la IP pública de mi servidor:
   ``67.207.95.95``.
@@ -106,7 +106,7 @@ sudo nano /etc/nginx/sites-available/default
 Nos centramos en la línea que especifica el server_name, que si venimos de los pasos anteriores, estará indicando la IP
 pública de nuestro servidor, y añadimos el dominio (o sub-dominio) al listado:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-2.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-2.png)
 
 Si en tu caso estás configurando un dominio de primer nivel, deberías añadirlo con y sin "www":
 
@@ -161,7 +161,7 @@ Podremos ver el listado de perfiles que podemos aplicarle ejecutando el siguient
 sudo ufw app list
 ```
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-3.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-3.png)
 
 Vamos a añadirle las reglas "Nginx Full", para esto hacemos:
 
@@ -169,7 +169,7 @@ Vamos a añadirle las reglas "Nginx Full", para esto hacemos:
 sudo ufw allow 'Nginx Full'
 ```
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-4.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-4.png)
 
 > Si en caso ya lo tenías activo, podrías eliminar las reglas básicas de HTTP mediante:
 >
@@ -197,7 +197,7 @@ Nginx Full (v6)            ALLOW       Anywhere (v6)
 OpenSSH (v6)               ALLOW       Anywhere (v6)             
 ```
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-5.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-5.png)
 
 ### 5. Obteniendo nuestro certificado SSL
 
@@ -234,13 +234,13 @@ Si todo marchó bien, nos mostrará un mensaje de felicitaciones:
 Congratulations! You have successfully enabled https://tu-dominio.com
 ```
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-6.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-6.png)
 
 Con esto, tus certificados ya habrán sido transferidos, instalados y cargados. Por lo que si intentamos
 acceder a nuestro sitio mediante el dominio, veremos que ya podemos acceder a nuestro sitio y que este
 mostrará el mensaje de que es un sitio seguro:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-7.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-7.png)
 
 ### 6. Verificando la renovación automática de nuestro Certificado SSL
 
@@ -254,7 +254,7 @@ sudo certbot renew --dry-run
 
 Si es que no hay ningún problema, nos mostrará un mensaje de éxito.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-9.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-9.png)
 
 Si el proceso automático de renovación alguna vez fallase, Let’s Encrypt enviará un mensaje al email
 que especificamos, alertando que nuestro certificado se encuentra próximo a expirar.
@@ -269,7 +269,7 @@ https://www.ssllabs.com/ssltest/analyze.html?d=mi-dominio.com
 
 En mi caso, probando con ``site.kennyhorna.com``, el resultado fue el siguiente:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-8.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-8.png)
 
 🎉🎊 Felicidades 🎊🎉, ya tienes tu Certificado SSL instalado y totalmente gratuito.
 
@@ -291,7 +291,7 @@ nano .env
 ```
 Para finalmente modificar la llave ``APP_URL`` actualizándole con nuestro dominio (o sub-dominio):
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-8.png)
+![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-8.png)
 
 > En caso hayamos guardado en caché nuestra configuración, no olvides correr: ``php artisan config:clear``. 
 

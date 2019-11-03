@@ -4,7 +4,7 @@ section: content
 title: "Desplegando Laravel con LEMP Stack - Parte I: Instalación y configuración de LEMP Stack"
 date: 2019-10-19
 description: Siempre es difícil querer desplegar aplicaciones Laravel, sobre todo cuando estamos iniciando. Esta guía pretende orientarte en esta -frecuentemente complicada- tarea.  
-cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p01.png
+cover_image: /assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p01.png
 featured: false
 categories: [despliegue, tutoriales, laravel, php]
 ---
@@ -57,7 +57,7 @@ Otros sitios recomendados en donde pueden alojar sus aplicaciones son:
 [Vultr](https://www.vultr.com/), [Linode](https://www.linode.com/), [Heroku](https://www.heroku.com/),
 entre muchos otros.
 
-<img src="/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-0-1.png" class="self-center rounded-lg">
+<img src="/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-0-1.png" class="self-center rounded-lg">
 
 ## Comencemos
 
@@ -74,7 +74,7 @@ Una vez en el panel de creación, vamos a seleccionar las características de nu
 comenzar seleccionaremos el sistema operativo, en nuestro caso la versión estable más reciente de Ubuntu:
 18.04.3
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-3.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-3.png)
 
 Paso seguido seleccionaremos el tamaño/potencia de nuestro droplet. Esto se hace a través de la elección
 del plan en el que esté nuestro droplet. Dado que es para una demo, escogeremos la opción más modesta
@@ -84,7 +84,7 @@ mucho tráfico.
 > Ten en cuenta que puedes aumentar la capacidad de tu droplet en cualquier momento desde el panel de
 > configuración de tu servicio.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-4.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-4.png)
 
 A continuación, nos preguntará si le queremos asignar un _bloque de almacenamiento_ y la región en donde se
 encontrará nuestro droplet. Los **bloques de almacenamiento** son una suerte de "discos locales" que 
@@ -94,7 +94,7 @@ configurado ninguno, omitiremos este paso.
 Para la región seleccionaré **New York 1** pues es la más "cercana" a mi ubicación y por ende, menor 
 ping/latencia. En tu caso selecciona la que más te convenga.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-5.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-5.png)
 
 #### Llaves SSH
 
@@ -103,11 +103,11 @@ Entraremos ahora a la sección de **Autenticación**.
 > Te recomiendo fuertemente que configures tus llaves SSH en esta sección. Para esto, puedes añadir una llave
 > nueva (tu llave pública), o seleccionar una existente en caso no hayas añadido alguna previamente.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-6.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-6.png)
 
 Como ajustes finales, le daremos un nombre y también algunas etiquetas (opcional).
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-7.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-7.png)
 
 Por último, le daremos en **"Crear Droplet"**.
 
@@ -117,7 +117,7 @@ Por último, le daremos en **"Crear Droplet"**.
 Esperamos unos segundos hasta que se cree nuestro droplet. Una vez terminado, lo veremos listado como en
 nuestros recursos desde donde visualizaremos la IP de nuestro servidor.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-8.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-1-8.png)
 
 ### 2. Accediendo mediante SSH
 
@@ -135,7 +135,7 @@ acabo de crear (67.207.95.95), resultando: `ssh root@67.207.95.95`.
 > Al ser primera vez que nos conectamos a este servidor, nos preguntará si confiamos en esta dirección IP
 > o si queremos guardar en caché el registro. Aceptamos y continuamos.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-2-1.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-2-1.png)
 
 Como podemos ver, ya hemos accedido remotamente al servidor a través de una interfaz de línea de comandos.
 Ya tenemos control total de nuestro VPS. 
@@ -165,7 +165,7 @@ de nuestro servidor desde nuestro navegador, veremos que Nginx nos da la bienven
 
 Deberías ver algo similar a lo siguiente:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-3-1.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-3-1.png)
 
 ### 5. Instalando y asegurando MySQL
 
@@ -205,7 +205,7 @@ Acto seguido nos pedirá que establezcamos una contraseña (y que la verifiquemo
 > No te preocupes si no aparece nada en pantalla mientra la escribas por seguridad el terminal 
 > oculta la contraseña. 
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-4-1.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-4-1.png)
 
 Acto seguido preguntará si queremos remover "usuarios anónimos". Escribimos `y` (+ <kbd>Enter</kbd>).
 
@@ -217,7 +217,7 @@ Por último, nos consulta si queremos "recargar la table de privilegios". Nuevam
 
 Si todo marchó correctamente, la terminal te mostrará el mensaje **"All Done!"**
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-4-2.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-4-2.png)
 
 ### 6. Instalando y configurando PHP
 
@@ -243,7 +243,7 @@ Podemos verificar la versión de PHP que estamos corriendo con el siguiente coma
 
 Con esto ya tendremos todo el **LEMP stack** instalado y listo para poder servir nuestra aplicación :)
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-6-1.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-6-1.png)
 
 #### Configurar PHP
 
@@ -273,7 +273,7 @@ Esto nos llevará hasta la línea correcta. Si nos fijamos, está comentada (al 
 
     cgi.fix_pathinfo=0
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-6-2.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-6-2.png)
 
 Para guardar los cambios apretaremos primero <kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>.
 
@@ -316,7 +316,7 @@ quedaría así:
     index index.php index.html index.htm index.nginx-debian.html;
     //    ^^^^^^^^^
     
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-1.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-1.png)
 
 A continuación cambiaremos el `server_name` y colocaremos acá la IP de nuestro VPS. Esto le dice
 a Nginx a qué dominio debe de responder. Dado que de momento accedemos a nuestro servidor mediante
@@ -325,7 +325,7 @@ utilizar para nuestra aplicación, podemos añadirlo acá también.
 
     server_name 67.207.95.95;
  
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-2.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-2.png)
 
 Ahora le indicaremos a Nginx que utilice la extensión que instalamos anteriormente: `php-fpm`. 
 
@@ -333,7 +333,7 @@ Si nos fijamos en el formato de configuración del archivo que estamos editando,
 servidor está estructurado por distintas directivas. Una de estas son las `location`. si observamos,
 tenemos tres bloques que inician con `location`: el inicial y dos comentados (inician con `#`):
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-3.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-3.png)
 
 Entonces, para activar `php-fpm`, vamos a quitarle los comentarios al primer bloque comentado (el
 segundo en el archivo) y a modificar la versión de php a utilizar.
@@ -357,7 +357,7 @@ esto le dirá a Nginx que ignore los archivos `.htaccess`. Esto es porque estos 
 
 > Nota: Tener en cuenta mantener comentada esta línea: `fastcgi_pass 127.0.0.1:9000;`
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-4.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-4.png)
 
 Ahora guardaremos nuestros cambios (<kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>)
 para poder validar si nuestra configuración es correcta. Para hacer esto ingresamos:
@@ -366,7 +366,7 @@ para poder validar si nuestra configuración es correcta. Para hacer esto ingres
     
 Si es que no cometimos algún error, el resultado del comando anterior debería devolvernos algo así:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-5.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-7-5.png)
 
 Con esto configurado, ya estamos listos para desplegar nuestra aplicación PHP.
 
@@ -401,7 +401,7 @@ de este servidor. Ahí la actualizaremos por `/var/www/laravel/public`. Es la ú
         
         # ...
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-1.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-1.png)
 
 Más arriba, comenté que el archivo `index.php` recoge también los parámetros adicionales que llegan con cada
 request (el payload), por tanto debemos decirle a nuestro servidor que también envíe esta data a Laravel.
@@ -413,7 +413,7 @@ Para esto volveremos a modificar Nginx actualizando lo siguiente:
                 try_files $uri $uri/ /index.php?$query_string;
         }                          # ^^^^^^^^^^^^^^^^^^^^^^^^^
         
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-2.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-2.png)
 
 Guardaremos nuestros cambios (<kbd>Ctrl</kbd> + <kbd>X</kbd>, luego tipeamos `Y` y por último apretamos <kbd>Enter</kbd>). Luego de esto,
 procederemos a reiniciar Nginx para que los cambios surtan efecto.
@@ -423,7 +423,7 @@ procederemos a reiniciar Nginx para que los cambios surtan efecto.
 Si es que ahora nos dirigimos hacia la url de nuestro dominio (o en nuestro caso, a nuestra IP), veremos
 este error `404` en lugar de la página de bienvenida que retornaba previamente:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-3.png)
+![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-8-3.png)
 
 ### 9. Creando un archivo Swap (Opcional)
 

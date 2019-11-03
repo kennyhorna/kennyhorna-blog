@@ -4,7 +4,7 @@ section: content
 title: "Desplegando Laravel con LEMP Stack - Parte II: Instalación y configuración de Laravel + Git Hooks"
 date: 2019-10-23
 description: Esta es la segunda parte de la guía sobre como configurar un VPS utilizando LEMP Stack para servir una aplicación Laravel. En esta ocasión nos enfocaremos en la configuración de Git y Laravel.  
-cover_image: /assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02.png
+cover_image: /assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02.png
 featured: false
 categories: [despliegue, tutoriales, laravel, php]
 ---
@@ -192,7 +192,7 @@ Ahora listaremos los archivos que contiene nuestro directorio especial de Larave
 
 Por tanto, si todo salió bien, deberíamos ver todos nuestro archivos de Laravel 🎉🎉.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-1.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-1.png)
 
 ### 14. Configurando nuestra Base de Datos
 
@@ -210,7 +210,7 @@ mysql -u root -p'tu-clave'
 
 Si todo marchó bien, deberías ver la línea de comenzar iniciando con un `mysql>`:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-2.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-2.png)
 
 Esto nos indica que accedimos a MySQL, por lo tanto, ya podemos crear nuestra base de datos.
 Dado que estoy subiendo un proyecto de prueba, mi base de datos se llamará `my_site`. Ajusta esto
@@ -222,7 +222,7 @@ Para validar que nuestra DB ha sido creada, podemos ejecutar:
 
     SHOW DATABASES;
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-3.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-3.png)
 
 Con esto, ya podemos salir de MySQL. Ingresamos ``exit`` y le damos a <kbd>Enter</kbd>.
 
@@ -280,7 +280,7 @@ Como ya sabrás, todos los archivos que están listados en nuestro ``.gitignore`
 tanto acá es donde incluimos archivos/carpetas que queremos que nuestro VCS gestione, ya sea por motivos
 de seguridad o de facilidad. 
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-4.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-4.png)
 
 Un ejemplo es el directorio ``/vendor``, este directorio tiene todas las dependencias que nuestra aplicación 
 necesita. Sin embargo, dado que **sí** incluimos ``composer.json`` y ``composer.lock`` en nuestro VCS, Composer 
@@ -340,7 +340,7 @@ nano .env
 ```
 Al hacer esto nos mostrará algo parecido a lo siguiente:
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-7.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-7.png)
 
 Dado que estamos en un entorno de producción, podemos hacer unos cambios iniciales como:
 
@@ -380,7 +380,7 @@ hacer en este file, por ejemplo la configuración del servidor del driver que ma
 
 Así que nuestro ``.env`` quedaría de la siguiente forma (a groso modo):
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-8.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-8.png)
  
 
 #### Generando nuestra llave de encriptación
@@ -428,7 +428,7 @@ php artisan migrate
 > Nos preguntará si estamos seguros de correr este comando pues estamos en un entorno de producción, escribimos ``yes``
 > y damos <kbd>Enter</kbd>.
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-9.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-9.png)
 
 Dado que estoy subiendo una instalación fresca de Laravel, en mi caso solo migrará las tablas por defecto que trae: 
 ``users``, ``password_resets`` y ``failed_jobs``.
@@ -466,7 +466,7 @@ exit
  
  Con esto habremos creado nuestro usuario con éxito.
  
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-10.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-10.png)
  
 > Podrás notar que para el campo ``password`` le apliqué un "hasheo" a la contraseña. Esto es para darle una capa
 > adicional de seguridad a nuestro sistema. Por defecto, al hacer un intento de login, Laravel comparará la 
@@ -485,7 +485,7 @@ exit
 nuestra aplicación Laravel y subir cambios hacia esta de manera rápida y simple. Podemos comprobarlo dirigiéndonos 
 hacia nuestro dominio (o en mi caso, hacia nuestra IP):
 
-![](/assets/images/posts/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-11.png)
+![](/assets/images/posts/0003/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p02-11.png)
 
 Como hemos podido ver, el proceso es un poco largo, pero he tratado de incluir el máximo detalle posible para que
 quede claro qué hacemos en cada paso.
