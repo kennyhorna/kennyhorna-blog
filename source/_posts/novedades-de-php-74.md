@@ -233,7 +233,7 @@ Entre muchos otros.
 
 ## Cierre
 
-Como puedes notas, PHP 7.4 trae consigo interesantes adiciones y modificaciones que, en mi opinión, seguirá
-impulsando del resurgimiento de este gran lenguaje de programación.
+Como puedes notar, PHP 7.4 trae consigo interesantes adiciones y modificaciones que, en mi opinión, seguirán
+impulsando el resurgimiento de este gran lenguaje de programación.
 
-Como siempre, cualquier comentario, duda, aclaración o corrección es bienvenida.
+Como siempre, cualquier comentario, duda, aclaración o corrección es bienvenido.
