@@ -5,7 +5,7 @@ title: Novedades de PHP 7.4
 date: 2019-11-03
 description: PHP 7.4 es la última versión de la serie 7.X antes de la esperada PHP 8, así que indagaremos en las novedades y cambios que nos trae. 
 cover_image: /assets/images/posts/0005/novedades-php-74.png
-featured: true
+featured: false
 categories: [php]
 ---
 
