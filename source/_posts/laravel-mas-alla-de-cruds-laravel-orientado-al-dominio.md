@@ -6,6 +6,7 @@ date: 2019-12-15
 description: También podría llamarlos "grupos", "módulos"; Algunas personas los llaman "servicios". Cualquiera que sea el nombre que prefieras, los dominios describen un conjunto de problemas de negocio que estás tratando de resolver.  
 cover_image: /assets/images/posts/0008/mas-alla-de-cruds-01-laravel-orientado-al-dominio.png
 featured: true
+reference: https://stitcher.io/blog/laravel-beyond-crud-01-domain-oriented-laravel
 categories: [laravel, php, programming]
 ---
 

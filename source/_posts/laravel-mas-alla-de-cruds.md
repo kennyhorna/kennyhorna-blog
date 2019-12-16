@@ -6,6 +6,7 @@ date: 2019-12-15
 description: Una serie de artículos para desarrolladores PHP que trabajan en proyectos Laravel más grandes que el promedio.  
 cover_image: /assets/images/posts/0007/mas-alla-de-cruds-00.png
 featured: false
+reference: https://stitcher.io/blog/laravel-beyond-crud
 categories: [laravel, php, programming, series]
 ---
 

@@ -9,6 +9,9 @@
   <meta property="og:image" content="{{ $page->cover_image }}"/>
   <meta property="og:image:width" content="1100"/>
   <meta property="og:image:height" content="440"/>
+  @if($page->reference)
+    <link rel="alternate" hreflang="en" href="{{ $page->reference }}"/>
+  @endif
   @foreach($page->categories as $i => $tag)
     <meta property="article:tag" content="{{ $tag }}"/>
   @endforeach
