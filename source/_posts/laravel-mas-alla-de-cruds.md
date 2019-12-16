@@ -19,7 +19,7 @@ Los artículos que conforman esta serie son:
 
 - [[00] Prefacio](#prefacio)
 - [[01] Laravel orientado al Dominio](/blog/laravel-mas-alla-de-cruds-laravel-orientado-al-dominio) 
-- [02] Trabajando con data
+- [[02] Trabajando con data](/blog/laravel-mas-alla-de-cruds-trabajando-con-data)
 - [03] Acciones
 - [04] Modelos
 - [05] Modelos con patrón de estado

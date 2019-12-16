@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: Laravel orientado al Dominio"
 date: 2019-12-15
 description: También podría llamarlos "grupos", "módulos"; Algunas personas los llaman "servicios". Cualquiera que sea el nombre que prefieras, los dominios describen un conjunto de problemas de negocio que estás tratando de resolver.  
 cover_image: /assets/images/posts/0008/mas-alla-de-cruds-01-laravel-orientado-al-dominio.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-01-domain-oriented-laravel
 categories: [laravel, php, programming]
 ---
@@ -94,7 +94,7 @@ Como una descripción general de alto nivel, así es como se vería la estructur
 orientado al dominio:
 
 <div class="files">
-    // Una directorio específico de dominio por concepto de negocio
+    // Un directorio específico de dominio por concepto de negocio
     <div class="folder folder--open">app/Domain/Invoices
         <div class="folder">Actions</div>
         <div class="folder">QueryBuilders</div>
