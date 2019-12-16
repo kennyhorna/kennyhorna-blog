@@ -5,7 +5,7 @@ title: "Laravel: Más allá de CRUDs"
 date: 2019-12-15
 description: Una serie de artículos para desarrolladores PHP que trabajan en proyectos Laravel más grandes que el promedio.  
 cover_image: /assets/images/posts/0007/mas-alla-de-cruds-00.png
-featured: true
+featured: false
 categories: [laravel, php, programming, series]
 ---
 
@@ -14,8 +14,8 @@ Esta es una adaptación al español de lo publicado por [Brent](https://mobile.t
 
 Los artículos que conforman esta serie son:
 
-- [00 Prefacio](#prefacio)
-- [01] Laravel orientado al Dominio
+- [[00] Prefacio](#prefacio)
+- [[01] Laravel orientado al Dominio](/blog/laravel-mas-alla-de-cruds-laravel-orientado-al-dominio) 
 - [02] Trabajando con data
 - [03] Acciones
 - [04] Modelos
