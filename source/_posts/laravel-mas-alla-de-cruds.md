@@ -11,7 +11,9 @@ categories: [laravel, php, programming, series]
 ---
 
 Esta es una adaptación al español de lo publicado por [Brent](https://mobile.twitter.com/brendt_gd) -de Spatie- en su 
-[blog](https://stitcher.io/blog/laravel-beyond-crud) (puedes encontrar ahí las erie en su idioma original).
+[blog](https://stitcher.io/blog/laravel-beyond-crud) (puedes encontrar ahí la serie en su idioma original).
+
+### Tabla de contenido
 
 Los artículos que conforman esta serie son:
 
