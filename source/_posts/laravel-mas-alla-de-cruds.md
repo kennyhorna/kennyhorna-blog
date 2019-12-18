@@ -21,7 +21,7 @@ Los artículos que conforman esta serie son:
 - [[01] Laravel orientado al Dominio](/blog/laravel-mas-alla-de-cruds-laravel-orientado-al-dominio) 
 - [[02] Trabajando con data](/blog/laravel-mas-alla-de-cruds-trabajando-con-data)
 - [[03] Acciones](/blog/laravel-mas-alla-de-cruds-acciones)
-- [04] Modelos
+- [[04] Modelos](/blog/laravel-mas-alla-de-cruds-modelos)
 - [05] Modelos con patrón de estado
 - [06] Gestionando Dominios
 - [07] Ingresando a la capa de aplicación

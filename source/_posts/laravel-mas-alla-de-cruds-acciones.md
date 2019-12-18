@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: Trabajando con data"
 date: 2019-12-19
 description: "Ahora que podemos trabajar con data de forma segura y transparente, debemos comenzar a hacer algo con ella."  
 cover_image: /assets/images/posts/0010/mas-alla-de-cruds-03-acciones.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-03-actions
 categories: [laravel, php, programming]
 ---
