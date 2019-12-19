@@ -1,7 +1,7 @@
 ---
 extends: _layouts.post
 section: content
-title: "Más allá de CRUDs: Trabajando con data"
+title: "Más allá de CRUDs: [03] Acciones"
 date: 2019-12-19
 description: "Ahora que podemos trabajar con data de forma segura y transparente, debemos comenzar a hacer algo con ella."  
 cover_image: /assets/images/posts/0010/mas-alla-de-cruds-03-acciones.png
