@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: Trabajando con data"
 date: 2019-12-17
 description: "En el núcleo de cada proyecto, encontrarás data. Casi todas las tareas de las aplicaciones se pueden resumir de este modo: proveer, interpretar y manipular data de cualquier modo que el negocio lo requiera."  
 cover_image: /assets/images/posts/0009/mas-alla-de-cruds-02-trabjando-con-data.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-02-working-with-data
 categories: [laravel, php, programming]
 ---
