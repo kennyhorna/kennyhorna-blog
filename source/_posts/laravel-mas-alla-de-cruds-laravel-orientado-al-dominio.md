@@ -1,7 +1,7 @@
 ---
 extends: _layouts.post
 section: content
-title: "Más allá de CRUDs: Laravel orientado al Dominio"
+title: "Más allá de CRUDs: [02] Laravel orientado al Dominio"
 date: 2019-12-15
 description: También podría llamarlos "grupos", "módulos"; Algunas personas los llaman "servicios". Cualquiera que sea el nombre que prefieras, los dominios describen un conjunto de problemas de negocio que estás tratando de resolver.  
 cover_image: /assets/images/posts/0008/mas-alla-de-cruds-01-laravel-orientado-al-dominio.png
