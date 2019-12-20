@@ -40,7 +40,7 @@ esta pila de tecnologías nos ayudan a hacer disponible al mundo nuestra aplicac
 
 La diferencia entre uno y otro es el servidor web: Nginx (L**E**MP) vs Apache (L**A**MP). Personalmente siempre 
 utilizo Nginx, pero es más por temas de preferencia/familiaridad que porque uno sea mejor o peor que el otro. 
-Está en tus investigar sus deferencias bondades/debilidades y escoger el que más te convenga.
+Está en tus manos investigar sobre sus diferentes bondades/debilidades y escoger el que más te convenga.
 
 Para fines de esta guía, emplearemos Nginx.
 
