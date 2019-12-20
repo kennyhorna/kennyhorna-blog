@@ -54,10 +54,10 @@ Para el caso de dominios de primer nivel, es recomendable que apuntes la versió
 - _A record_ en **mi-dominio.com** apuntando hacia la IP pública de tu servidor.
 - _A record_ en **www.mi-dominio.com** apuntando hacia la IP pública de tu servidor.
   
-En el caso de un sub-dominio, bastará con que lo apuntes a tu IP pública de tu servidor.
+En el caso de un sub-dominio, bastará con que lo apuntes hacia la IP pública de tu servidor.
 
-Dado que yo utilizaré un sub-dominio, y ya que mi dominio (``kennyhorna.com``) tiene los DNS apuntando hacia los de
-Netlify, es por medio de esa plataforma por donde apuntaré al sub-dominio hacia mi servidor. En tu caso puedes 
+Dado que utilizaré un sub-dominio, y ya que mi dominio (``kennyhorna.com``) tiene los DNS apuntando hacia los de
+Netlify, es por medio de esa plataforma por donde apuntaré el sub-dominio hacia mi servidor. En tu caso puedes 
 hacerlo desde donde gestiones tus dominios:
 
 ![](/assets/images/posts/0004/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-p03-1.png)
@@ -183,7 +183,7 @@ de OpenSSH a la lista de reglas permitidas, para hacerlo ejecutamos:
 sudo ufw allow 'OpenSSH'
 ```
 
-Si todo fue bien, al ejecutar ``sudo ufw status`` debería mostrarnos algo como esto: 
+Si todo marchó bien, al ejecutar ``sudo ufw status`` debería mostrarnos algo como esto: 
 
 ```bash
 Output
