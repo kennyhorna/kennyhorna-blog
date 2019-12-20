@@ -13,7 +13,7 @@ PHP 7.4 es la última versión de la serie 7.X antes de la esperada PHP 8, así 
 y cambios que nos trae.
 
 ### Sobre PHP 7.4
-El lanzamiento de la nueva versión está pensada para el 28 de noviembre del 2019. 
+El lanzamiento de esta versión se llevó a cabo el 28 de noviembre del 2019. 
 
 ## Principales novedades
 
