@@ -5,12 +5,16 @@ title: "Más allá de CRUDs: [03] Acciones"
 date: 2019-12-19
 description: "Ahora que podemos trabajar con data de forma segura y transparente, debemos comenzar a hacer algo con ella."  
 cover_image: /assets/images/posts/0010/mas-alla-de-cruds-03-acciones.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-03-actions
 categories: [laravel, php, programming]
 ---
 
-Esta es el artículo #03 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
+Ahora que podemos trabajar con data de forma segura y transparente, debemos comenzar a hacer algo con ella.
+
+-------
+
+Este es el artículo #03 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
 publicado por [Brent](https://mobile.twitter.com/brendt_gd) en su 
 [blog](https://stitcher.io/blog/laravel-beyond-crud-03-actions) (puedes encontrar ahí la serie en 
 su idioma original).
@@ -20,8 +24,6 @@ La tabla de contenido que conforma esta serie la [tienes aquí](/blog/laravel-ma
 Dicho esto, continuemos 😉.
 
 -------
-
-> Ahora que podemos trabajar con data de forma segura y transparente, debemos comenzar a hacer algo con ella.
 
 Al igual que no queremos trabajar con arreglos aleatorios llenos de data, tampoco queremos que la parte más 
 crítica de nuestro proyecto, la lógica del negocio, se extienda a través de funciones y clases aleatorias.
