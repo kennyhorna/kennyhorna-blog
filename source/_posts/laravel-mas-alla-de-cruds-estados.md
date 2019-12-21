@@ -1,25 +1,23 @@
 ---
 extends: _layouts.post
 section: content
-title: "Más allá de CRUDs: [04] Modelos"
-date: 2019-12-21
-description: "En los capítulos anteriores, hemos hablado sobre dos de los tres componentes básicos de cada aplicación: DTO y acciones: datos y funcionalidad. En este capítulo veremos la última pieza que considero parte de este núcleo: exponer los datos que persisten en un almacén de datos; en otras palabras: modelos."  
-cover_image: /assets/images/posts/0011/mas-alla-de-cruds-04-modelos.png
+title: "Más allá de CRUDs: [05] Estados"
+date: 2019-12-22
+description: "El patrón de diseño State es una de las mejores formas de agregar comportamientos específicos de estado al modelo, mientras los mantiene limpios."  
+cover_image: /assets/images/posts/0012/mas-alla-de-cruds-05-estados.png
 featured: true
 reference: https://stitcher.io/blog/laravel-beyond-crud-04-models
 categories: [laravel, php, programming]
 ---
 
-
-En los capítulos anteriores, hemos hablado sobre dos de los tres componentes básicos de cada aplicación: DTO y 
-acciones: datos y funcionalidad. En este capítulo veremos la última pieza que considero parte de este núcleo: 
-exponer los datos que persisten en un almacén de datos; en otras palabras: modelos.
+El patrón de diseño State es una de las mejores formas de agregar comportamientos específicos de estado al modelo, 
+mientras los mantiene limpios.
 
 -----
 
-Este es el artículo #04 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
+Este es el artículo #05 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
 publicado por [Brent](https://mobile.twitter.com/brendt_gd) en su 
-[blog](https://stitcher.io/blog/laravel-beyond-crud-04-models) (puedes encontrar ahí la serie en 
+[blog](https://stitcher.io/blog/laravel-beyond-crud-05-states) (puedes encontrar ahí la serie en 
 su idioma original).
 
 La tabla de contenido que conforma esta serie la [tienes aquí](/blog/laravel-mas-alla-de-cruds).
@@ -28,206 +26,368 @@ Dicho esto, continuemos 😉.
 
 -------
 
-Ahora, los modelos son un tema complicado. Laravel proporciona mucha funcionalidad a través de sus clases
-modelo Eloquent, lo que significa que no solo representan los datos en un almacén de datos, sino que también 
-te permiten crear consultas, cargar y guardar datos, tienen un sistema de eventos incorporado y más.
+Este capítulo hablará sobre el patrón Estado y específicamente cómo aplicarlo a los modelos. Puedes pensar en 
+este capítulo como una extensión [del anterior (modelos)](/blog/laravel-mas-alla-de-cruds-modelos), donde escribí 
+sobre cómo pretendemos mantener nuestras clases de modelos manejables al evitar que manejen lógica de negocio.
 
-En este capítulo, no te diré que abandones toda la funcionalidad del modelo que proporciona Laravel; de 
-hecho, es bastante útil. Sin embargo, mencionaré algunas trampas con las que debes tener cuidado y soluciones 
-para ellas; de modo que incluso en proyectos grandes, los modelos no serán la causa del mantenimiento difícil.
+Sin embargo, alejar la lógica del negocio de los modelos plantea un problema con un caso de uso muy común: **¿qué 
+hacer con los estados del modelo?**
 
-Mi punto de vista es que debemos adoptar el framework, en lugar de tratar de luchar contra él; aunque 
-deberíamos adoptarlo de tal manera que los proyectos grandes se mantengan mantenibles. Así que sumerjámonos.
+Una factura puede estar pendiente o pagada, un pago puede fallar o tener éxito. Dependiendo del estado, un modelo 
+debe comportarse de manera diferente; ¿Cómo podemos cerrar esta brecha entre los modelos y la lógica empresarial?
 
-### Modelo ≠ lógica de negocio
+Los estados -y las transiciones entre ellos- son un caso de uso frecuente en grandes proyectos; tan frecuentes que 
+merecen un capítulo propio.
 
-El primer inconveniente con el que se encuentran muchos desarrolladores es que piensan en los modelos como 
-el lugar ideal para la lógica de negocio. Ya mencioné algunas responsabilidades de los modelos que están 
-integradas en Laravel, y argumentaría que tengas cuidado de no agregar más.
+### El patrón Estado
 
-Suena muy atractivo al principio, poder hacer algo como `$invoiceLine->price_incuding_vat` o 
-`$invoice-> total_price;` y seguro que sí. De hecho, creo que las facturas y las líneas de factura deberían 
-tener estos métodos. Sin embargo, hay una distinción importante que hacer: *estos métodos no deberían 
-calcular nada*. Echemos un vistazo a lo que no hay que hacer:
+En esencia, el [patrón Estado](https://es.wikipedia.org/wiki/State_(patr%C3%B3n_de_dise%C3%B1o)) es un patrón simple, 
+pero permite una funcionalidad muy poderosa. Tomemos nuevamente el ejemplo de las facturas: una factura puede estar 
+pendiente o pagada. Para empezar, daré un ejemplo muy simple, porque quiero que entiendas cómo el patrón de estado 
+nos permite mucha flexibilidad.
 
-Aquí hay un descriptor de acceso `total_price` en nuestro modelo `Invoice`, recorriendo todas las líneas de 
-factura y haciendo la suma de su precio total.
+Digamos que el resumen de la factura debe mostrar una insignia que represente el estado de esa factura, es de color 
+**naranja** cuando está _pendiente_ y **verde** cuando se _paga_.
+
+Un enfoque de "modelo gordo" ingenuo haría algo como esto:
 
 ```php
 class Invoice extends Model
 {
-    public function getTotalPriceAttribute(): int
-    {
-        return $this->invoiceLines
-            ->reduce(function (int $totalPrice, InvoiceLine $invoiceLine) {
-                return $totalPrice + $invoiceLine->total_price;
-            }, 0);
-    }
-}
-```
-
-Y así es como se calcula el precio total por línea.
-
-```php
-class InvoiceLine extends Model
-{
-    public function getTotalPriceAttribute(): int
-    {
-        $vatCalculator = app(VatCalculator::class);
+    // …
     
-        $price = $this->item_amount * $this->item_price;
-
-        if ($this->price_excluding_vat) {
-            $price = $vatCalculator->totalPrice(
-                $price, 
-                $this->vat_percentage
-            );
+    public function getStateColour(): string
+    {
+        if ($this->state->equals(InvoiceState::PENDING())) {
+            return 'orange';
         }
     
-        return $price;
+        if ($this->state->equals(InvoiceState::PAID())) {
+            return 'green';
+        }
+
+        return 'gray';
     }
 }
 ```
 
-Como leíste el capítulo anterior sobre acciones, puede adivinar lo que haría en su lugar: calcular 
-el precio total de una factura es una historia de usuario que debe representarse mediante una acción.
-
-Los modelos `Invoice` e `InvoiceLine` podrían tener las propiedades simples `total_price` y 
-`price_incuding_vat`, pero primero se calculan mediante acciones y luego se almacenan en la base de datos. 
-Al usar `$invoice-> total_price`, simplemente está leyendo datos que ya se han calculado antes.
-
-Hay algunas ventajas en este enfoque. Primero el obvio: rendimiento, solo estás haciendo los cálculos una 
-vez, no siempre cuando necesitas los datos. En segundo lugar, puede consultar los datos calculados directamente. 
-Y tercero: no tiene que preocuparse por los efectos secundarios.
-
-Ahora, podríamos comenzar un debate purista sobre cómo la responsabilidad individual ayuda a que sus clases 
-sean pequeñas, mejor mantenibles y fácilmente comprobables; y cómo la inyección de dependencia es superior a 
-la ubicación del servicio; pero prefiero decir lo obvio en lugar de tener largos debates teóricos donde sé 
-que simplemente hay dos lados que no estarán de acuerdo.
-
-Entonces, lo obvio: aunque te gustaría poder hacer `$invoice->send()` o `$invoice->toPdf()`, el código del 
-modelo está creciendo y creciendo. Esto es algo que sucede con el tiempo, no parece ser un gran problema 
-al principio. `$invoice->toPdf()` en realidad solo puede ser una o dos líneas de código.
-
-Sin embargo, por experiencia, una o dos líneas suman. "Una o dos líneas" no son el problema, pero cien veces 
-"una o dos líneas" sí lo son. La realidad es que las clases modelo crecen con el tiempo y pueden crecer 
-bastante.
-
-Incluso si no estás de acuerdo conmigo en las ventajas que aporta la inyección de responsabilidad individual 
-y de dependencia, hay poco en desacuerdo sobre esto: una clase de modelo con cientos de líneas de código no 
-se puede mantener.
-
-Todo eso para decir esto: piensa en los modelos y su propósito como proporcionarle datos solamente, deja que 
-algo más se preocupe por asegurarse de que los datos se calculen correctamente.
-
-### Reducción de modelos
-
-Si nuestro objetivo es mantener las clases de modelos razonablemente pequeñas, lo suficientemente pequeñas 
-como para poder comprenderlas simplemente abriendo su archivo, necesitamos mover algunas cosas más. 
-Idealmente, solo queremos mantener getters y setters, simples accesores y mutadores, _casts_ y relaciones.
-
-Otras responsabilidades deben trasladarse a otras clases. Un ejemplo son los Query Scopes: podríamos 
-moverlos fácilmente a clases generadoras de consultas dedicadas.
-
-Lo creas o no: las clases generadoras de consultas son en realidad la forma normal de usar Eloquent; 
-los _scopes_ son simplemente "versiones endulzadas" encima de estas. Así es como podría verse una 
-clase generadora de consultas.
+Como estamos utilizando algún tipo de 
+[clase enum](http://arco.inf-cr.uclm.es/~david.villa/pensar_en_C++/vol1/ch03s08s03.html) para representar el 
+valor del estado, podríamos mejorar esto de la siguiente manera:
 
 ```php
-namespace Domain\Invoices\QueryBuilders;
-
-use Domain\Invoices\States\Paid;
-use Illuminate\Database\Eloquent\Builder;
-
-class InvoiceQueryBuilder extends Builder
+class Invoice extends Model
 {
-    public function wherePaid(): self
+    // …
+    
+    public function getStateColour(): string
     {
-        return $this->whereState('status', Paid::class);
+        return $this->state->getColour();
     }
 }
 ```
 
-A continuación, anulamos el método `newEloquentBuilder` en nuestro modelo y devolvemos nuestra clase 
-personalizada. Laravel lo usará a partir de ahora.
-
 ```php
-namespace Domain\Invoices\Models;
-
-use Domain\Invoices\QueryBuilders\InvoiceQueryBuilder;
-
-class Invoice extends Model 
+/**
+ * @method static self PENDING()
+ * @method static self PAID()
+ */
+class InvoiceState extends Enum
 {
-    public function newEloquentBuilder($query): InvoiceQueryBuilder
+    private const PENDING = 'pending';
+    private const PAID = 'paid';
+
+    public function getColour(): string
     {
-        return new InvoiceQueryBuilder($query);
+        if ($this->value === self::PENDING) {
+            return 'orange';
+        }
+    
+        if ($this->value === self::PAID) {
+            return 'green'
+        }
+
+        return 'gray';
     }
 }
 ```
 
-Esto es lo que quise decir al "adoptar el framework": no es necesario introducir nuevos patrones como 
-repositorios _per se_, puedes construir sobre lo que ya proporciona Laravel. Pensándolo bien, logramos 
-el equilibrio perfecto entre el uso de los productos proporcionados por el framework y la prevención de 
-que nuestro código crezca demasiado en lugares específicos.
-
-Con esta mentalidad, también podemos proporcionar clases _collection_ personalizadas para las relaciones. 
-Laravel tiene un gran soporte de colecciones, aunque a menudo terminas con largas cadenas de funciones de 
-esta clase, ya sea en el modelo o en la capa de aplicación. Esto -nuevamente- no es ideal, y afortunadamente 
-Laravel nos proporciona los ganchos necesarios para agrupar la lógica de las colecciones en una clase dedicada.
-
-Aquí hay un ejemplo de una clase _collection_ personalizada, y ten en cuenta que es completamente posible 
-combinar varios métodos en otros nuevos, evitando largas cadenas de funciones en otros lugares.
+ > Como nota aparte, estoy asumiendo el empleo del paquete [myclabs/php-enum](https://github.com/myclabs/php-enum). 
+> Como mejora adicional, para una mejor medición, podríamos escribir lo anterior de modo más corto utilizando
+> arreglos.
 
 ```php
-namespace Domain\Invoices\Collections;
-
-use Domain\Invoices\Models\InvoiceLines;
-use Illuminate\Database\Eloquent\Collection;
-
-class InvoiceLineCollection extends Collection
+class InvoiceState extends Enum
 {
-    public function creditLines(): self
+    public function getColour(): string
     {
-        return $this->filter(function (InvoiceLine $invoiceLine) {
-            return $invoiceLine->isCreditLine();
-        });
+        return [
+            self::PENDING => 'orange',
+            self::PAID => 'green',
+        ][$this->value] ?? 'gray';
     }
 }
 ```
 
-Así es como vinculas una clase _collection_ con un modelo; ``InvoiceLine``, en este caso:
+Cualquiera sea el enfoque que prefieras, en esencia estás enumerando todas las opciones disponibles, verificando 
+si una de ellas coincide con la actual y haciendo algo en función del resultado. Es una gran declaración `if`/`else`, 
+con cualquier "azúcar sintáctico" que prefieras.
+
+Con este enfoque, agregamos una responsabilidad, ya sea al modelo o la clase enum: tiene que saber qué debe hacer un 
+estado específico, tiene que saber cómo funciona un estado. El patrón Estado cambia esto al revés: trata a "un estado" 
+como un ciudadano-de-primera-clase de nuestra base de código. Cada estado está representado por una clase separada, 
+y cada una de estas clases actúa sobre un tema.
+
+¿Es difícil de entender? Vamos a hacerlo paso a paso.
+
+Comenzaremos con una clase abstracta `InvoiceState`, esta clase describirá toda la funcionalidad que los estados de 
+factura concretos pueden proporcionar. En nuestro caso, queremos que un estado proporcione un _color_.
 
 ```php
-namespace Domain\Invoices\Models;
-
-use Domain\Invoices\Collection\InvoiceLineCollection;
-
-class InvoiceLine extends Model 
+abstract class InvoiceState
 {
-    public function newCollection(array $models = []): InvoiceLineCollection
-    {
-        return new InvoiceLineCollection($models);
-    }
+    abstract public function colour(): string;
+}
+```
 
-    public function isCreditLine(): bool
+A continuación, crearemos dos clases, cada una de estas representará un estado concreto.
+
+```php
+class PendingInvoiceState extends InvoiceState
+{
+    public function colour(): string
     {
-        return $this->price < 0.0;
+        return 'orange';
     }
 }
 ```
 
-Cada modelo que tenga una relación `HasMany` con `InvoiceLine`, ahora usará nuestra clase _collection_ 
-en su lugar.
-
 ```php
-$invoice
-    ->invoiceLines
-    ->creditLines()
-    ->map(function (InvoiceLine $invoiceLine) {
-        // …
-    });
+class PaidInvoiceState extends InvoiceState
+{
+    public function colour(): string
+    {
+        return 'green';
+    }
+}
 ```
 
-Intenta mantener tus modelos limpios y orientados a los datos, en lugar de hacer que proporcionen lógica 
-de negocio. Hay mejores lugares para manejarlo.
+Lo primero que debes notar es que cada una de estas clases se puede probar fácilmente por su cuenta.
 
+```php
+class InvoiceStateTest extends TestCase
+{
+    /** @test */
+    public function the_colour_of_pending_is_orange
+    {   
+        $state = new PendingInvoiceState();
+        
+        $this->assertEquals('orange', $state->colour());
+    }
+}
+```
+
+En segundo lugar, debes tener en cuenta que los colores son un ejemplo ingenuo que estamos utilizando para explicar 
+el patrón. También podrías tener lógica de negocio más compleja encapsulada por un estado. Toma este ejemplo: 
+_¿se debe pagar una factura?._ Esto, por supuesto, depende del estado, si ya fue pagado o no, pero también podría 
+depender del tipo de factura con la que estamos tratando. Digamos que nuestro sistema admite notas de crédito que 
+no tienen que pagarse, o permite facturas con un precio de `0`. Esta lógica de negocio puede ser encapsulada por 
+las clases de estado.
+
+Sin embargo, hay una cosa que falta para que esta funcionalidad funcione: necesitamos poder ver el modelo desde 
+nuestra clase de estado, si vamos a decidir si esa factura debe pagarse o no. Es por eso que tenemos nuestra 
+clase padre abstracta `InvoiceState`; agreguemos los métodos requeridos allí.
+
+```php
+abstract class InvoiceState
+{
+    /** @var Invoice */
+    protected $invoice;
+
+    public function __construct(Invoice $invoice) { /* … */ }
+
+    abstract public function mustBePaid(): bool;
+    
+    // …
+}
+```
+
+Por lo que ahora deberemos implementar en las clases abstractas:
+
+```php
+class PendingInvoiceState extends InvoiceState
+{
+    public function mustBePaid(): bool
+    {
+        return $this->invoice->total_price > 0
+            && $this->invoice->type->equals(InvoiceType::DEBIT());
+    }
+    
+    // …
+}
+```
+
+```php
+class PaidInvoiceState extends InvoiceState
+{
+    public function mustBePaid(): bool
+    {
+        return false;
+    }
+    
+    // …
+}
+```
+
+Nuevamente, podemos escribir pruebas unitarias simples para cada estado, y nuestro modelo de factura simplemente 
+puede hacer esto:
+
+```php
+class Invoice extends Model
+{
+    public function getStateAttribute(): InvoiceState
+    {
+        return new $this->state_class($this);
+    }
+    
+    public function mustBePaid(): bool
+    {
+        return $this->state->mustBePaid();
+    } 
+}
+```
+
+Finalmente, en la base de datos podemos guardar la clase de estado del modelo concreto en el campo `state_class` y 
+listo. Obviamente, hacer este mapeo manualmente (guardar y cargar desde y hacia la base de datos) se vuelve tedioso 
+muy rápidamente. Es por eso que [creé un paquete](https://github.com/spatie/laravel-model-states) que se encarga 
+de todo el trabajo duro por ti.
+
+Sin embargo, el comportamiento específico del estado, en otras palabras "el patrón Estado", es solo la mitad de 
+la solución; todavía tenemos que manejar la transición del estado de la factura de uno a otro, y asegurarnos de que 
+solo estados específicos puedan pasar a otros. Así que echemos un vistazo a las transiciones de estado.
+
+### Transiciones
+
+¿Recuerdas cómo hablé sobre alejar la lógica de negocio de los modelos y solo permitirles proporcionar datos de la 
+base de datos de una manera viable? El mismo pensamiento puede aplicarse a estados y transiciones. Deberíamos evitar 
+los efectos secundarios al usar estados, cosas como hacer cambios en la base de datos, enviar correos, etc. Los 
+estados deben usarse para leer o proporcionar datos. Las transiciones, por otro lado, no proporcionan nada. Por el 
+contrario, se aseguran de que nuestro estado del modelo se transite correctamente de uno a otro, lo que lleva a 
+efectos secundarios aceptables.
+
+Dividir estas dos preocupaciones en clases separadas nos da las mismas ventajas sobre las que escribí una y otra vez: 
+mejor capacidad de prueba y reducción de la carga cognitiva. Permitir que una clase solo tenga una responsabilidad 
+hace que sea más fácil dividir un problema complejo en varias partes fáciles de entender.
+
+Entonces, _transiciones_: una clase que tomará un modelo, una factura en nuestro caso, y cambiará el estado de esa 
+factura, si está permitido, a otra. En algunos casos, puede haber pequeños efectos secundarios como escribir un 
+mensaje de registro o enviar una notificación sobre la transición de estado. Una implementación ingenua podría verse 
+más o menos así.
+
+```php
+class PendingToPaidTransition
+{
+    public function __invoke(Invoice $invoice): Invoice
+    {
+        if (! $invoice->mustBePaid()) {
+            throw new InvalidTransitionException(self::class, $invoice);
+        }
+
+        $invoice->status_class = PaidInvoiceState::class;
+        $invoice->save();
+    
+        History::log($invoice, "Pending to Paid");
+    }
+}
+```
+
+Nuevamente, hay muchas cosas que puedes hacer con este patrón básico:
+
+- Definir todas las transiciones permitidas en el modelo.
+- Transición de un estado directamente a otro, mediante el uso de una clase de transición bajo el capó
+- Determine automáticamente a qué estado pasar en función de un conjunto de parámetros
+
+Nuevamente, el paquete que mencioné antes agrega soporte para las transiciones, así como la gestión básica de 
+la transición. Sin embargo, si deseas máquinas de estado complejas, es posible que desee ver otras soluciones. 
+
+### Estados sin transiciones
+
+Cuando pensamos en "estado", a menudo pensamos que no pueden existir sin transiciones. Sin embargo, eso no es 
+cierto: un objeto puede tener un estado que nunca cambia y no se requieren transiciones para aplicar el patrón 
+Estado. ¿Porque es esto importante? Bueno, eche un vistazo nuevamente a nuestra implementación 
+`PendingInvoiceState::mustBePaid`:
+
+```php
+class PendingInvoiceState extends InvoiceState
+{
+    public function mustBePaid(): bool
+    {
+        return $this->invoice->total_price > 0
+            && $this->invoice->type->equals(InvoiceType::DEBIT());
+    }
+}
+```
+
+Dado que queremos usar el patrón Estado para reducir los bloques frágiles `if`/`else` en nuestro código, ¿puedes 
+adivinar a dónde voy con esto? ¿Has considerado que `$this->invoice->type->equals(InvoiceType::DEBIT())` es de 
+hecho una declaración `if` disfrazada?
+
+¡De hecho,`InvoiceType` también podría aplicar el patrón Estado! Es simplemente un estado que probablemente nunca 
+cambiará para un objeto dado. Mira esto:
+
+```php
+abstract class InvoiceType
+{
+    /** @var Invoice */
+    protected $invoice;
+    
+    // …
+
+    abstract public function mustBePaid(): bool;
+}
+```
+
+```php
+class CreditInvoiceType extends InvoiceType
+{
+    public function mustBePaid(): bool
+    {
+        return false
+    }
+}
+```
+
+```php
+class DebitInvoiceType extends InvoiceType
+{
+    public function mustBePaid(): bool
+    {
+        return true;
+    }
+}
+```
+
+Ahora podemos refactorizar nuestro `PendingInvoiceState::mustBePaid` de esta manera.
+
+```php
+class PendingInvoiceState extends InvoiceState
+{
+    public function mustBePaid(): bool
+    {
+        return $this->invoice->total_price > 0
+            && $this->invoice->type->mustBePaid();
+    }
+}
+```
+
+La reducción de las declaraciones `if`/`else` en nuestro código permite que el código sea más lineal, lo que 
+a su vez es más fácil de razonar. Recomiendo echar un vistazo a 
+[la charla de Sandi Metz](https://www.youtube.com/watch?v=29MAL8pJImQ) sobre este tema en específico.
+
+----
+
+El patrón Estado es, en mi opinión, impresionante. Nunca volverás a atascarte escribiendo enormes declaraciones 
+`if`/`else`, en la vida real a menudo hay más de dos estados de factura, y permite un código limpio y comprobable.
+
+Es un patrón que puedes introducir gradualmente en tus bases de código existentes, y estoy seguro de que será de 
+gran ayuda para mantener el proyecto mantenible a largo plazo.
