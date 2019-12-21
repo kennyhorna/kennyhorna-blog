@@ -10,7 +10,11 @@ reference: https://stitcher.io/blog/laravel-beyond-crud-01-domain-oriented-larav
 categories: [laravel, php, programming]
 ---
 
-Esta es el artículo #01 originalmente publicado por [Brent](https://mobile.twitter.com/brendt_gd) en su 
+Los seres humanos pensamos en categorías, nuestro código debería ser un reflejo de eso.
+
+-----
+
+Este es el artículo #01 originalmente publicado por [Brent](https://mobile.twitter.com/brendt_gd) en su 
 [blog](https://stitcher.io/blog/laravel-beyond-crud-01-domain-oriented-laravel) (puedes encontrar ahí la serie en 
 su idioma original).
 
@@ -19,8 +23,6 @@ El índice de artículos que conforman esta serie lo [puedes encontrar aquí](/b
 Dicho esto, comencemos 😉.
 
 -------
-
-> Los seres humanos pensamos en categorías, nuestro código debería ser un reflejo de eso.
 
 El término "Dominio" lo tomo del popular paradigma de programación DDD, o "Diseño Orientado al Dominio (Domain Driven 
 Design). Según una de sus definiciones se describe como "Esfera específica de actividad o conocimiento".

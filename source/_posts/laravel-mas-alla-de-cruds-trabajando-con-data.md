@@ -10,7 +10,13 @@ reference: https://stitcher.io/blog/laravel-beyond-crud-02-working-with-data
 categories: [laravel, php, programming]
 ---
 
-Esta es el artículo #02 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
+
+En el núcleo de cada proyecto, encontrarás data. Casi todas las tareas de las aplicaciones se pueden 
+resumir de este modo: proveer, interpretar y manipular data de cualquier modo que el negocio lo requiera.
+
+------
+
+Este es el artículo #02 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
 publicado por [Brent](https://mobile.twitter.com/brendt_gd) en su 
 [blog](https://stitcher.io/blog/laravel-beyond-crud-02-working-with-data) (puedes encontrar ahí la serie en 
 su idioma original).
@@ -20,9 +26,6 @@ La tabla de contenido que conforma esta serie la [tienes aquí](/blog/laravel-ma
 Dicho esto, comencemos 😉.
 
 -------
-
-En el núcleo de cada proyecto, encontrarás data. Casi todas las tareas de las aplicaciones se pueden 
-resumir de este modo: proveer, interpretar y manipular data de cualquier modo que el negocio lo requiera.
 
 Probablemente también hayas notado que: al comienzo de un proyecto no comienzas a construir controladores 
 ni _jobs_, comienzas construyendo, lo que Laravel llama, _modelos_. Los grandes proyectos se benefician 
