@@ -1,7 +1,7 @@
 ---
 extends: _layouts.post
 section: content
-title: "Más allá de CRUDs: Modelos"
+title: "Más allá de CRUDs: [04] Modelos"
 date: 2019-12-21
 description: "En los capítulos anteriores, hemos hablado sobre dos de los tres componentes básicos de cada aplicación: DTO y acciones: datos y funcionalidad. En este capítulo veremos la última pieza que considero parte de este núcleo: exponer los datos que persisten en un almacén de datos; en otras palabras: modelos."  
 cover_image: /assets/images/posts/0011/mas-alla-de-cruds-04-modelos.png
@@ -10,7 +10,14 @@ reference: https://stitcher.io/blog/laravel-beyond-crud-04-models
 categories: [laravel, php, programming]
 ---
 
-Esta es el artículo #04 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
+
+En los capítulos anteriores, hemos hablado sobre dos de los tres componentes básicos de cada aplicación: DTO y 
+acciones: datos y funcionalidad. En este capítulo veremos la última pieza que considero parte de este núcleo: 
+exponer los datos que persisten en un almacén de datos; en otras palabras: modelos.
+
+-----
+
+Este es el artículo #04 de la serie [Laravel: Más allá de CRUDs](/blog/laravel-mas-alla-de-cruds). Fue originalmente 
 publicado por [Brent](https://mobile.twitter.com/brendt_gd) en su 
 [blog](https://stitcher.io/blog/laravel-beyond-crud-04-models) (puedes encontrar ahí la serie en 
 su idioma original).
@@ -20,10 +27,6 @@ La tabla de contenido que conforma esta serie la [tienes aquí](/blog/laravel-ma
 Dicho esto, continuemos 😉.
 
 -------
-
-En los capítulos anteriores, hemos hablado sobre dos de los tres componentes básicos de cada aplicación: DTO y 
-acciones: datos y funcionalidad. En este capítulo veremos la última pieza que considero parte de este núcleo: 
-exponer los datos que persisten en un almacén de datos; en otras palabras: modelos.
 
 Ahora, los modelos son un tema complicado. Laravel proporciona mucha funcionalidad a través de sus clases
 modelo Eloquent, lo que significa que no solo representan los datos en un almacén de datos, sino que también 
