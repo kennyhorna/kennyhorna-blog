@@ -3,14 +3,14 @@ extends: _layouts.post
 section: content
 title: "Más allá de CRUDs: [05] Estados"
 date: 2019-12-22
-description: "El patrón de diseño State es una de las mejores formas de agregar comportamientos específicos de estado al modelo, mientras los mantiene limpios."  
+description: "El patrón de diseño Estado es una de las mejores formas de agregar comportamientos específicos de estado al modelo, mientras los mantiene limpios."  
 cover_image: /assets/images/posts/0012/mas-alla-de-cruds-05-estados.png
 featured: true
-reference: https://stitcher.io/blog/laravel-beyond-crud-04-models
+reference: https://stitcher.io/blog/laravel-beyond-crud-05-states
 categories: [laravel, php, programming]
 ---
 
-El patrón de diseño State es una de las mejores formas de agregar comportamientos específicos de estado al modelo, 
+El patrón de diseño "Estado" es una de las mejores formas de agregar comportamientos específicos de estado al modelo, 
 mientras los mantiene limpios.
 
 -----
@@ -22,13 +22,13 @@ su idioma original).
 
 La tabla de contenido que conforma esta serie la [tienes aquí](/blog/laravel-mas-alla-de-cruds).
 
-Dicho esto, continuemos 😉.
+Dicho esto, comencemos 😉.
 
 -------
 
-Este capítulo hablará sobre el patrón Estado y específicamente cómo aplicarlo a los modelos. Puedes pensar en 
+Este capítulo hablará sobre el patrón Estado y específicamente cómo aplicarlo a modelos. Puedes pensar en 
 este capítulo como una extensión [del anterior (modelos)](/blog/laravel-mas-alla-de-cruds-modelos), donde escribí 
-sobre cómo pretendemos mantener nuestras clases de modelos manejables al evitar que manejen lógica de negocio.
+sobre cómo pretendemos mantener nuestros modelos manejables al evitar que manejen lógica de negocio.
 
 Sin embargo, alejar la lógica del negocio de los modelos plantea un problema con un caso de uso muy común: **¿qué 
 hacer con los estados del modelo?**
