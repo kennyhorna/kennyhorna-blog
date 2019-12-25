@@ -1,5 +1,5 @@
 <div class="flex flex-col mb-4">
-  <div class="w-full mb-6">
+  <div class="w-full mb-6 px-3 md:px-0">
     @if ($post->cover_image)
       <a
           href="{{ $post->getUrl() }}"
@@ -9,13 +9,20 @@
       </a>
     @endif
 
-    <h2 class="text-3xl mt-0">
+    <h2 class="text-3xl my-0">
       <a
           href="{{ $post->getUrl() }}"
           title="Read more - {{ $post->title }}"
           class="text-purple-700 font-extrabold"
       >{{ $post->title }}</a>
     </h2>
+
+    <span
+        class="my-2 inline-block bg-gray-300 hover:bg-purple-200 leading-loose tracking-wide
+          text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-2 pt-px cursor-default"
+    >
+      {{ $post->reading_time->abbreviated }}
+    </span>
 
     <p class="mb-4 mt-0">{!! $post->getExcerpt(200) !!}</p>
 

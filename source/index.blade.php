@@ -2,17 +2,26 @@
 
 @section('body')
   @foreach ($posts->where('featured', true) as $featuredPost)
-    <div class="w-full mb-6">
+    <div class="w-full mb-6 px-3 md:px-0">
       @if ($featuredPost->cover_image)
         <a href="{{ $featuredPost->getUrl() }}" title="Leer: {{ $featuredPost->title }}">
-          <img src="{{ $featuredPost->cover_image }}" alt="{{ $featuredPost->title }} cover image"
+          <img src="{{ $featuredPost->cover_image }}" alt="{{ $featuredPost->title }} imagen de portada"
                class="mb-6 no-draggable">
         </a>
       @endif
 
-      <p class="text-gray-700 font-medium my-2 text-sm">
-        {{ strftime("%d de %B, %Y", $featuredPost->getDate()->getTimestamp()) }}
-      </p>
+      <div class="flex flex-row my-2">
+        <span
+            class="inline-block bg-gray-300 hover:bg-purple-200 leading-loose tracking-wide
+            text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-2 pt-px cursor-default"
+        >
+        {{ $featuredPost->reading_time->abbreviated }}
+      </span>
+
+        <p class="text-gray-700 font-medium text-sm my-0">
+          {{ strftime("%d de %B, %Y", $featuredPost->getDate()->getTimestamp()) }}
+        </p>
+      </div>
 
       <h2 class="text-3xl mt-0">
         <a href="{{ $featuredPost->getUrl() }}" title="Read {{ $featuredPost->title }}"
