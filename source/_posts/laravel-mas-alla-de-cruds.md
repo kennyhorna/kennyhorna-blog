@@ -23,7 +23,7 @@ Los artículos que conforman esta serie son:
 - [[03] Acciones](/blog/laravel-mas-alla-de-cruds-acciones)
 - [[04] Modelos](/blog/laravel-mas-alla-de-cruds-modelos)
 - [[05] Modelos con patrón de estado](/blog/laravel-mas-alla-de-cruds-estados)
-- [06] Gestionando Dominios
+- [[06] Gestionando Dominios](/blog/laravel-mas-alla-de-cruds-gestionando-dominios)
 - [07] Ingresando a la capa de aplicación
 - [08] "Modelos vista" (view models)
 - Se están preparando más capítulos..
