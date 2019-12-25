@@ -2,7 +2,7 @@
 extends: _layouts.post
 section: content
 title: "Más allá de CRUDs: [05] Estados"
-date: 2019-12-22
+date: 2019-12-25
 description: "El patrón de diseño Estado es una de las mejores formas de agregar comportamientos específicos de estado al modelo, mientras los mantiene limpios."  
 cover_image: /assets/images/posts/0012/mas-alla-de-cruds-05-estados.png
 featured: true
