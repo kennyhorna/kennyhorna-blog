@@ -59,17 +59,16 @@
 
   @include('_nav.menu-responsive')
 
-  <main role="main" class="flex-auto w-full container max-w-6xl mx-auto pt-4 pb-8 px-6">
+  <main role="main" class="flex-auto w-full container max-w-6xl mx-auto pt-4 pb-8 md:px-6">
     @yield('body')
   </main>
 
   <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
-    <ul class="flex flex-col md:flex-row justify-center list-reset">
+{{--    <ul class="flex flex-col md:flex-row justify-center list-reset">--}}
       <span class="md:mr-2">
-        &copy; Kenny Horna {{ date('Y') }}. Construido con <a href="http://jigsaw.tighten.co/">Jigsaw</a> y <a
-            href="https://tailwindcss.com/">TailwindCSS</a>.
+        &copy; Kenny Horna {{ date('Y') }}.
       </span>
-    </ul>
+{{--    </ul>--}}
   </footer>
 
 
