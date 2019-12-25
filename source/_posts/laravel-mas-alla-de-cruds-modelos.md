@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: [04] Modelos"
 date: 2019-12-21
 description: "En los capítulos anteriores, hemos hablado sobre dos de los tres componentes básicos de cada aplicación: DTO y acciones: datos y funcionalidad. En este capítulo veremos la última pieza que considero parte de este núcleo: exponer los datos que persisten en un almacén de datos; en otras palabras: modelos."  
 cover_image: /assets/images/posts/0011/mas-alla-de-cruds-04-modelos.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-04-models
 categories: [laravel, php, programming]
 ---
