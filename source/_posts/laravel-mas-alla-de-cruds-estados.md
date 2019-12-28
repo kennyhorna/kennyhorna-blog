@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: [05] Estados"
 date: 2019-12-25
 description: "El patrón de diseño Estado es una de las mejores formas de agregar comportamientos específicos de estado al modelo, mientras los mantiene limpios."  
 cover_image: /assets/images/posts/0012/mas-alla-de-cruds-05-estados.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-05-states
 categories: [laravel, php, programming]
 ---
