@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: [06] Gestionando dominios"
 date: 2019-12-28
 description: "En los capítulos anteriores vimos los tres componentes básicos de nuestros dominios: DTO, acciones y modelos. Hoy tomamos un respiro de las cosas técnicas de bajo nivel y nos centramos en el lado filosófico: ¿cómo comienzas a usar dominios, cómo identificarlos y cómo administrarlos a largo plazo?"  
 cover_image: /assets/images/posts/0013/mas-alla-de-cruds-06-gestionando-dominios.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-06-managing-domains
 categories: [laravel, php, programming]
 ---
