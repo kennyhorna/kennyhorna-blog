@@ -5,7 +5,7 @@ title: "Compartiendo apps Laravel utilizando tu servidor local con Ngrok"
 date: 2020-01-21
 description: "¿Alguna vez has necesitado compartir rápidamente tu aplicación con algún compañero, desarrollador o incluso con el cliente? Pues Ngrok te permite hacerlo sin necesidad de desplegar nuestra aplicación a un entorno de pruebas/producción."  
 cover_image: /assets/images/posts/0014/compartiendo-tu-proyecto-laravel-utilizando-tu-servidor-local-con-ngrok.png
-featured: true
+featured: false
 categories: [despliegue, laravel, php, herramientas]
 ---
 
