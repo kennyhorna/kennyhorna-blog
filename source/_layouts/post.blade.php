@@ -47,7 +47,7 @@
           @endforeach
         @endif
 
-        <div class="border-b border-purple-200 mb-10 pb-4 anchor-tags" v-pre>
+        <div class="post-content border-b border-purple-200 mb-10 pb-4 anchor-tags" v-pre>
           @yield('content')
         </div>
 
