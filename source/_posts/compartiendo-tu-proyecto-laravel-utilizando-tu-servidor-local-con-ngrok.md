@@ -12,7 +12,7 @@ categories: [despliegue, laravel, php, herramientas]
 ¿Alguna vez has necesitado compartir rápidamente tu aplicación con algún compañero, desarrollador o incluso con el cliente?
 Pues Ngrok te permite hacerlo sin necesidad de desplegar nuestra aplicación a un entorno de pruebas/producción.
 
-PD: En realidad esto no es exclusivo de Laravel, puedes utilizarlo con cualquier tipo de proyecto.
+PD: En realidad, esto no es exclusivo de Laravel, puedes utilizarlo con cualquier tipo de proyecto.
 
 Bueno, antes de comenzar debemos entender qué es lo que Ngrok nos provee.
 
@@ -79,7 +79,7 @@ lo levanta en el puerto `8000` por lo que haríamos:
 
 Una vez hecho esto, notarás que Ngrok te brinda unas direcciones las cuales podemos compartir con quienes queramos.
 
-En mi caso, dado que estoy probando mis cambios en caliente tra haber hecho `npm run watch` (o mejor aún: `yarn run watch`)
+En mi caso, dado que estoy probando mis cambios en caliente tras haber hecho `npm run watch` (o mejor aún: `yarn run watch`)
 lo quiero mapear hacia el puerto `3000`, por tanto:
 
     ngrok http 3000
