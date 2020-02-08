@@ -41,10 +41,11 @@ module.exports = {
     },
   },
   variants: {
+    backgroundColor: ['responsive', 'hover', 'focus'],
     borderRadius: ['responsive', 'focus'],
     borderWidth: ['responsive', 'active', 'focus'],
+    display: ['responsive', 'group-hover'],
     width: ['responsive', 'focus'],
-    backgroundColor: ['responsive', 'hover', 'focus'],
   },
   plugins: [
     function ({addUtilities}) {

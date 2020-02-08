@@ -6,6 +6,7 @@ return [
     'siteName' => "Kenny Horna.",
     'siteDescription' => 'Un lugar donde comparto las cosas que me interesan.',
     'siteAuthor' => 'Kenny Horna',
+    'sections' => ['series', 'laravel', 'tips', 'tutoriales'],
 
     // collections
     'collections' => [
