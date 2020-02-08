@@ -39,7 +39,7 @@ pagination:
                 <a
                     href="{{ $path }}"
                     title="Ir a la página {{ $pageNumber }}"
-                    class="bg-gray-200 hover:bg-gray-400 text-red-700 rounded mr-3 px-5 py-3 {{ $pagination->currentPage == $pageNumber ? 'text-red-600' : '' }}"
+                    class="bg-gray-200 hover:bg-gray-400 text-purple-700 rounded mr-3 px-5 py-3 {{ $pagination->currentPage == $pageNumber ? 'text-red-600' : '' }}"
                 >{{ $pageNumber }}</a>
             @endforeach
 

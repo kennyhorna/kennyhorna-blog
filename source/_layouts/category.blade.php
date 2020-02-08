@@ -8,10 +8,12 @@
 @endpush
 
 @section('body')
-    <h1>{{ $page->title }}</h1>
+    <div class="px-4">
+      <h1 class="text-3xl md:5xl">{{ $page->title }}</h1>
 
-    <div class="text-2xl border-b border-purple-200 mb-6 pb-10">
+      <div class="text-xl md:text-2xl border-b border-purple-200 mb-4 pb-2 md:mb-6 md:pb-10">
         @yield('content')
+      </div>
     </div>
 
     @foreach ($page->posts($posts) as $post)
