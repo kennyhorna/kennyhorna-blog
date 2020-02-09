@@ -5,7 +5,7 @@ title: "Colecciones: Mensajes de orden superior"
 date: 2020-02-08
 description: "Muchos de los métodos de las colecciones de Laravel ofrecen atajos para realizar acciones comunes sobre los elementos de estos. Descubre cómo usarlos."  
 cover_image: /assets/images/posts/0016/colecciones-mensajes-de-orden-superior.png
-featured: true
+featured: false
 categories: [laravel, php, programming, tips]
 ---
 
