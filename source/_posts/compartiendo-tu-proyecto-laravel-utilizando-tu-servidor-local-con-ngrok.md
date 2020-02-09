@@ -99,6 +99,14 @@ accedido públicamente:
 **Como nota adicional**: puedes ver todas las opciones de configuración ejecutando `ngrok --help` o `ngrok` a secas.
 Para más información puedes revisar la documentación de [Ngrok](https://ngrok.com/docs).
 
+### Demo
+
+Jaime Virrueta subió un video sobre Ngrok en su canal. En él, entra en detalles sobre los casos de uso de Ngrok y una demo utilizándole. Puedes verlo acá:
+
+<div markdown="1">
+<iframe width="800" height="450" src="https://www.youtube.com/embed/z2t_40D4w70" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div> 
+
 ------
 
 # Cierre
