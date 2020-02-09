@@ -103,7 +103,9 @@ las herramientas adecuadas, no es nada difícil cambiar, dividir y refactorizar 
 colega Freek se tomó el tiempo para grabar un ejemplo práctico en el que refactoriza una aplicación Laravel predeterminada 
 a la arquitectura descrita en esta serie. Puedes ver su sesión de refactorización en vivo a continuación.
 
+<div markdown="1">
 <iframe width="800" height="450" src="https://www.youtube.com/embed/yPiMzw-lLF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 En resumen: no tengas miedo de comenzar a usar dominios porque siempre puedes refactorizarlos más tarde.
 
