@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: [08] Modelos de vista (View models)"
 date: 2020-02-09
 description: "En este capítulo, profundizaremos en la capa de aplicación. Una tendencia importante en toda la serie es mantener el código limpio, conciso y manejable. Este capítulo no será diferente, ya que veremos cómo mantener los controladores limpios y al punto."  
 cover_image: /assets/images/posts/0017/0017-laravel-mas-alla-de-cruds-modelos-de-vista-view-models.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-08-view-models
 categories: [laravel, php, programming]
 ---
