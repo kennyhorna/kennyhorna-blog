@@ -63,12 +63,12 @@ Por último, si el uso que le vas a dar Airlock es para una SPA, deberás de añ
 
 >  Para no replicar por completo la documentación, en este artículo nos vamos a centrar en autenticaciones basadas en tokens. Pero descuida, al final del post enlazaré con la sección de la documentación referente a SPAs.
 
-Como se mencionó al inicio, puedes utilizar Airlock para autenticar mediante tokens (API) así como también mendiante
-cookies de sesión, útiles para SPAs. Veamos un ejemplo del primer caso.
+Como se mencionó al inicio, puedes utilizar Airlock para autenticar mediante tokens (API) así como también mediante
+_cookies_ de sesión, útiles para SPAs. Veamos un ejemplo del primer caso.
 
 ### Generando tokens para usar en APIs
 
-Para poder generar tokens, vas a necesitar añadir el trait ``HasApiTokens`` en tu modelo autenticable, que usualmente es el ``User``:
+Para poder generar tokens, vas a necesitar añadir el trait ``HasApiTokens`` en tu modelo "autentificable", que usualmente es el ``User``:
 
     use Laravel\Airlock\HasApiTokens;
     
@@ -77,7 +77,7 @@ Para poder generar tokens, vas a necesitar añadir el trait ``HasApiTokens`` en 
         use HasApiTokens, Notifiable;
     }   //  ^^^^^^^^^^^^
 
-Entonces, tan solo tendremos que hacer lo siguiente para generar un token para un usuario en específico:
+Entonces, tan solo tendremos que hacer lo siguiente para generar un _token_ para un usuario en específico:
 
     $user = User::find(1); // Obteniendo al usuario
     $token = $user->createToken('nombre-del-token');
@@ -85,7 +85,7 @@ Entonces, tan solo tendremos que hacer lo siguiente para generar un token para u
     // Para finalmente retornar el token en sí:
     return $token->plainTextToken;
     
-Dado que un usuario puede generar varios tokens, vamos a poder a acceder a todos ellos haciendo
+Dado que un usuario puede generar varios _tokens_, vamos a poder a acceder a todos ellos haciendo:
 
     foreach ($user->tokens as $token)
     {
@@ -93,14 +93,14 @@ Dado que un usuario puede generar varios tokens, vamos a poder a acceder a todos
     }
 
 ### Habilidades/alcances
-9
-Airlock te permite poder asignar [ciertas habilidades o limitaciones](https://laravel.com/docs/master/airlock#token-abilities) a los tokens que generes. Por ejemplo, si quisiéramos generar un token para el usuario que solo le permita actualizar productos, podríamos hacer algo así:
+
+Airlock te permite poder asignar [ciertas habilidades o limitaciones](https://laravel.com/docs/master/airlock#token-abilities) a los _tokens_ que generes. Por ejemplo, si quisiéramos generar un _token_ para el usuario que solo le permita actualizar productos, podríamos hacer algo así:
 
     return $user->createToken('nombre-del-token', ['product:update'])->plainTextToken; 
 
-Como puedes apreciar, el alcance puede ser indicado pasando un segundo parámetro al método ``createToken``.
+Como puedes apreciar, el alcance puede ser especificado pasando un segundo parámetro al método ``createToken``.
 
-Del mismo modo, si lo que queremos es consultar sobre si un usuario puede realizar una acción específica podemos hacerlo mediante el método ``tokenCan()``:
+Del mismo modo, si lo que queremos es consultar si un usuario puede realizar una acción en específico, podemos hacerlo mediante el método ``tokenCan()``:
 
     if ($user->tokenCan('product:update')) {
         //
@@ -108,11 +108,11 @@ Del mismo modo, si lo que queremos es consultar sobre si un usuario puede realiz
 
 ### Autenticación para aplicaciones Móviles
 
-El [modo de autenticar apps móviles](https://laravel.com/docs/master/airlock#mobile-application-authentication) es similar al de APIs de terceros, sin embargo hay algunas particularidades en el modo en el que generas tokens.
+El [modo de autenticar apps móviles](https://laravel.com/docs/master/airlock#mobile-application-authentication) es similar al de APIs de terceros, sin embargo hay algunas particularidades que puedes emplear en el modo en el que generas _tokens_.
 
 #### Generando tokens
 
-Para esto, podemos crear una ruta que acepte el email, contraseña y nombre del dispositivo, luego de esto intercambiaremos estas credenciales por un token de Airlock. Este token será almacenado por el dispositivo para que pueda utilizarlo y realizar más peticiones autenticadas al servidor. Veamos un ejemplo (tomado de la documentación):
+Para esto, podemos crear una ruta que acepte el email, contraseña y nombre del dispositivo, luego de esto intercambiaremos estas credenciales por un _token_ de Airlock. Este _token_ será almacenado por el dispositivo para que pueda utilizarlo y realizar más peticiones autenticadas al servidor. Veamos un ejemplo (tomado de la documentación):
 
     use App\User;
     use Illuminate\Http\Request;
@@ -141,7 +141,7 @@ Para esto, podemos crear una ruta que acepte el email, contraseña y nombre del 
         return $user->createToken($request->device_name)->plainTextToken;
     });
 
-Como nota adicional, cuando el dispositivo móvil haga requests utilizando este token, deberá pasarlo mediante una cabecera de autenticación como un token ``Bearer``:
+Como nota adicional, cuando el dispositivo móvil haga solicitudes utilizando este _token_, deberá pasarlo mediante una cabecera de autenticación como un token ``Bearer``:
 
     Authorization: Bearer {el-token-recibido}
 
@@ -156,7 +156,7 @@ Airlock incluye middlewares para añadir [protecciones a tus rutas](https://lara
 
 ### Testing
 
-Por último, algo muy útil para los que realizas pruebas en código es que, al igual que muchas herramientas de Laravel, Airlock provee una forma fácil para emular la autenticación en Airlock para cuando escribamos pruebas:
+Por último, algo muy útil para los que realizan pruebas en código es que, al igual que muchas herramientas de Laravel, Airlock provee una forma fácil para emular la autenticación en para cuando escribamos pruebas:
 
     use App\User;
     use Laravel\Airlock\Airlock;
