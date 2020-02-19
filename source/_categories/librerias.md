@@ -1,6 +1,6 @@
 ---
 extends: _layouts.category
-title: Herramientas
+title: Librerías
 description: Herramientas/librerías útiles.
 ---
 

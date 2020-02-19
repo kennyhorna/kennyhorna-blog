@@ -5,7 +5,7 @@ title: "Comprendiendo al helper tap()"
 date: 2020-02-13
 description: "El método `tap()` es muy útil pero puede que lo hayas pasado por encima o no comprendas del todo sobre cómo funciona. Descúbrelo hoy mediante algunos ejemplos prácticos."  
 cover_image: /assets/images/posts/0018/0018-comprendiendo-al-helper-tap.png
-featured: true
+featured: false
 categories: [laravel, php, programming, tips]
 ---
 
