@@ -5,7 +5,7 @@ title: "Laravel Airlock: autenticación ligera para SPAs Y APIs"
 date: 2020-02-19
 description: "Junto con el lanzamiento de Laravel 7.X, el equipo de Laravel nos trae también Airlock. Laravel Airlock es una librería que nos permite una autenticación algo más simple y ligera para SPAs, aplicaciones móviles y APIs basadas en tokens. Veamos cómo funciona."  
 cover_image: /assets/images/posts/0019/0019-laravel-airlock-autenticacion-ligera-para-spas-y-apis.png
-featured: true
+featured: false
 categories: [laravel, php, programming, librerias]
 ---
 
