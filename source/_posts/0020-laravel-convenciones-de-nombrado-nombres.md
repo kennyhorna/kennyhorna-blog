@@ -64,15 +64,22 @@ Este estilo es similar al anterior (_snake case_) teniendo como única diferenci
     <div class="bg-red-200 px-4"> este_se_parece_pero_noup</div>
 </div>
 
+Entonces, a modo de resumen:
+
+- PascalCase
+- camelCase
+- snake_case
+- kebab-case
+
 Estos no son los únicos estilos, de seguro que hay varios más, sin embargo son los que ocuparemos el día de hoy. Ahora sí, pasemos a los que nos interesa.
 
 ## Convenciones Laravel
 
-Vamos a agrupar a las reglas de nombrado según el tipo de elemento.
+Vamos a agrupar a las reglas de nombrado según el tipo de elemento. Como nota global mencionar de que, dado que todo el framework está escrito en inglés, este es el lenguaje que debes emplear para nombrar tus elementos.
 
 ### Controladores
 
-Los nombres de los controladores se derivan del nombre del modelo (**PascalCase**) añadiendo **el sufijo** _Controller_:
+Los nombres de los controladores se derivan del nombre del modelo añadiendo **el sufijo** _Controller_, aplicando el estilo **PascalCase**. Veamos algunos ejemplos:
 
 <div class="mb-10">
     <div class="bg-green-200 px-4">UserController</div>
@@ -96,7 +103,7 @@ Las funciones deben ser nombradas aplicando **camelCase**. Veamos algunos ejempl
 
 ### Modelos
 
-Para nombrar a los modelos tomaremos el nombre de la entidad en **singular** (inglés) y siempre aplicando **PascalCase**. Veamos algunos ejemplos:
+Para nombrar a los modelos tomaremos el nombre de la entidad en **singular** y siempre aplicando **PascalCase**. Veamos algunos ejemplos:
 
 <div class="mb-4">
     <div class="bg-green-200 px-4">User</div>
