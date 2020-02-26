@@ -21,7 +21,7 @@
   <div class="w-full flex md:flex-row scrollbar">
     <div class="w-full lg:w-4/5 bg-white rounded-none md:rounded-lg border shadow">
       @if ($page->cover_image)
-        <img src="{{ $page->cover_image }}" alt="{{ $page->title }} cover image" class="mb-2 w-full rounded-t-lg">
+        <img src="{{ $page->cover_image }}" alt="{{ $page->title }} cover image" class="mb-2 w-full rounded-none md:rounded-t-lg">
       @endif
 
       <div class="w-full p-6 md:p-12 md:pb-6">

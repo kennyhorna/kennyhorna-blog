@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: [07] Ingresando a la capa de aplicación"
 date: 2020-01-30
 description: "¿Qué pertenece exactamente a la capa de aplicación? ¿Cómo agrupamos el código en ese lugar? Estas preguntas serán respondidas en este capítulo ;)"  
 cover_image: /assets/images/posts/0015/laravel-mas-alla-de-cruds-ingresando-a-la-capa-de-aplicacion.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-07-entering-the-application-layer
 categories: [laravel, php, programming]
 ---

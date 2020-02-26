@@ -1,5 +1,9 @@
 @extends('_layouts.master')
 
+@push('meta')
+  <meta property="og:locale" content="es_ES"/>
+@endpush
+
 @section('body')
   @foreach ($posts->where('featured', true) as $featuredPost)
     <div class="w-full mb-6 px-3 md:px-0">

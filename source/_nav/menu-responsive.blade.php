@@ -5,7 +5,19 @@
                 title="{{ $page->siteName }} Blog"
                 href="/blog"
                 class="nav-menu__item hover:text-purple-500 {{ $page->isActive('/blog') ? 'active text-purple' : '' }}"
-            >Blog</a>
+            >Todos los artículos</a>
+
+            <span
+                class="nav-menu__item font-semibold hover:text-purple-500"
+            >Secciones</span>
+
+            @foreach($page->sections as $section)
+              <a href={{"/blog/secciones/{$section}"}}>
+                <div class="nav-menu__item pl-4 mb-3 flex flex-col w-full {{ $page->isActive('/' . $section) ? 'active text-purple-900 bg-purple-200' : '' }}">
+                  - {{ ucfirst($section) }}
+                </div>
+              </a>
+            @endforeach
         </li>
         <li class="pl-4 list-none">
             <a
