@@ -23,7 +23,7 @@ En el mundo de la programación hay muchos estilos que se emplean para **reempla
 
 #### camelCase
 
- Este estilo elimina los espacios aplicando una mayúscula para juntar la palabra siguiente. Notar que **la primera letra va siempre en minúsculas**. El nombre viene por la forma de la joroba de un **camello** `/\/\` (_camel_). Ejemplos:
+ Este estilo elimina los espacios aplicando una mayúscula para juntar la palabra siguiente. Notar que **la primera letra va siempre en minúscula**. El nombre viene por la forma de la joroba de un **camello** `/\/\` (_camel_). Ejemplos:
  
 <div class="mb-4">
   <div class="bg-green-200 px-4"> estoEstaBien</div>
@@ -33,7 +33,7 @@ En el mundo de la programación hay muchos estilos que se emplean para **reempla
 
 #### PascalCase
 
- Muy similar al anterior, solo que en este caso **la primera letra va en mayúsculas**. El nombre proviene del lenguaje de programación. Ejemplos:
+ Muy similar al anterior, solo que en este caso **la primera letra va en mayúscula**. El nombre proviene del lenguaje de programación. Ejemplos:
  
  <div class="mb-4">
     <div class="bg-green-200 px-4"> EstoEstaBien</div>
@@ -55,7 +55,7 @@ En el mundo de la programación hay muchos estilos que se emplean para **reempla
 
 #### kebab-case
 
-Este estilo es similar al anterior (_snake case_) teniendo como única diferencia la utilización de **guiones** (`-`) en lugar de los sub-guiones. De este modo el texto toma la forma de una **brocheta**, de ahí el origen del nombre (_kebab_). Ejemplos:
+Este estilo es similar al anterior (_snake_case_) teniendo como única diferencia la utilización de **guiones** (`-`) en lugar de los sub-guiones. De este modo el texto toma la forma de una **brocheta**, de ahí el origen del nombre (_kebab_). Ejemplos:
 
 <div class="mb-4">
     <div class="bg-green-200 px-4"> ahora-si-me-toco-a-mi</div>
@@ -82,12 +82,17 @@ Vamos a agrupar a las reglas de nombrado según el tipo de elemento. Como nota g
 Los nombres de los controladores se derivan del nombre del modelo añadiendo **el sufijo** _Controller_, aplicando el estilo **PascalCase**. Veamos algunos ejemplos:
 
 <div class="mb-10">
-    <div class="bg-green-200 px-4">UserController</div>
-    <div class="bg-green-200 px-4">OrderDetailController</div>
+    <div class="bg-green-200 px-4">UsersController</div>
+    <div class="bg-green-200 px-4">OrderDetailsController</div>
     <div class="bg-red-200 px-4">customerController</div>
     <div class="bg-red-200 px-4">DetalleDeFacturaController</div>
     <div class="bg-red-200 px-4">borrowed-book-controller</div>
 </div>
+
+#### Nota:
+
+* En el caso del primer ejemplo se recomienda que el nombre vaya en plural _UsersController_ pues se refiere a varios registros de la aplicación.
+* En el segundo ejemplo se hace referencia a los detalles de una orden en específico, lo correcto sería nombrar el controlador como _OrderDetailsController_ dado que maneja varios detalles de una orden.
 
 ### Funciones
 
