@@ -11,6 +11,12 @@ categories: [laravel, php, programming, librerias]
 
 Junto con el lanzamiento de Laravel 7.X, se lanza Laravel Airlock. Airlock es una librería mantenida por el equipo de Laravel que permite una autenticación algo más simple y ligera para SPAs, aplicaciones móviles y APIs basadas en tokens. Veamos cómo funciona.
 
+------
+
+Este artículo pertenece a la serie [Novedades de Laravel 7](/blog/0021-novedades-de-laravel-7). Puedes leer sobre el resto de sus novedades [aquí](/blog/0021-novedades-de-laravel-7).
+
+-----
+
 ## Fundamentos
 
 ### ¿Qué es en sí?
@@ -180,3 +186,5 @@ Puedes leer más sobre esto [aquí](https://laravel.com/docs/master/airlock#test
 # Cierre
 
 Como podemos ver, Airlock nos ofrece una alternativa fácil de implementar que puede ser de utilidad en muchos escenarios. 
+
+Si te interesó esta librería, no olvides leer el resto de novedades que trae Laravel 7 ([aquí](/blog/0021-novedades-de-laravel-7)), ya que tenemos [una serie de artículos -"Novedades de Laravel 7"-](/blog/0021-novedades-de-laravel-7) dedicados a este tema. 

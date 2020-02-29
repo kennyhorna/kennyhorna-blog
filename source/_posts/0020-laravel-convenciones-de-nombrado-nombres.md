@@ -5,7 +5,7 @@ title: "Buenas prácticas en Laravel: Convenciones de nombrado"
 date: 2020-02-22
 description: "Casi todo aspecto en Laravel es configurable para que puedas adaptarlo a tus costumbres. Sin embargo, Laravel de por sí tiene un modo de nombrar distintos elementos que te pueden ahorrar estos ajustes adicionales en caso decidas mantener sus prácticas. Hoy veremos cuales son."  
 cover_image: /assets/images/posts/0020/0020-laravel-convenciones-de-nombrado-nombres.png
-featured: true
+featured: false
 categories: [laravel, php, tips]
 ---
 
