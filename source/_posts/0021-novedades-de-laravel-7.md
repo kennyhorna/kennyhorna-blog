@@ -15,7 +15,7 @@ Entre las novedades que Laravel nos trae en esta versión, tenemos:
 
 - [Laravel Airlock: Autenticación ligera para SPAs y APIs](/blog/0019-laravel-airlock-autenticacion-ligera-para-spas-y-apis)
 - [Mejoras en el enlazado de modelos a rutas (_Route Model Binding_)](/blog/0022-novedades-de-laravel-7-mejoras-en-el-enlazado-de-modelos-a-rutas)
-- [Cliente HTTP](/blog/0023-novedades-de-laravel-7-cliente-http)
+- [Cliente HTTP](/blog/0023-novedades-de-laravel-7-el-nuevo-facade-http-consultas-nativas-a-servicios-externos)
 - _Operaciones fluidas trabajando con Strings_
 - _Múltiples drivers para emails_
 - _Casting personalizado en Eloquent (Eloquent Custom Casts)_
