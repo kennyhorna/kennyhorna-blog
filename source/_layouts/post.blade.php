@@ -47,7 +47,7 @@
           @endforeach
         @endif
 
-        <div class="post-content border-b border-purple-200 mb-10 pb-4 anchor-tags" v-pre>
+        <div class="post-content border-b border-purple-200 mb-10 pb-4 anchor-tags break-words" v-pre>
           @yield('content')
         </div>
 
@@ -130,19 +130,20 @@
     </div>
     <navigation-on-page :headings="pageHeadings"></navigation-on-page>
   </div>
-  <nav class="flex flex-col md:flex-row items-start md:text-base my-4 w-full lg:w-2/3 lg:pl-8">
-    <div class="w-full mx-4 md:1/3 text-center py-4">
+  <nav class="flex flex-col md:flex-row items-start md:text-base my-4 w-full lg:w-2/3 lg:pl-8 break-words">
+    <div class="mx-4 md:1/3 text-center py-4">
       @if ($next = $page->getNext())
         <a href="{{ $next->getUrl() }}" title="Anterior: {{ $next->title }}">
-          &LeftArrow; {{ $next->title }}
+          &LeftArrow; <br>{{ $next->title }}
         </a>
       @endif
     </div>
 
-    <div class="w-full mx-4 md:1/3 text-center py-4">
+    <div class="mx-4 md:1/3 text-center py-4">
       @if ($previous = $page->getPrevious())
         <a href="{{ $previous->getUrl() }}" title="Siguiente: {{ $previous->title }}">
-          {{ $previous->title }} &RightArrow;
+          &RightArrow; <br>
+          {{ $previous->title }}
         </a>
       @endif
     </div>
