@@ -5,8 +5,9 @@
   @apply .mb-10;
   @apply .mt-6;
   @apply .mx-auto;
-  @apply .px-8;
-  @apply .py-4;
+  @apply .pl-6;
+  @apply .pr-2;
+  @apply .py-2;
   @apply .rounded;
   @apply .text-sm;
 
@@ -18,7 +19,7 @@
   }
 
   .file {
-    @apply .px-6;
+    @apply .px-3;
     @apply .pt-2;
     @apply .text-blue-800;
 
