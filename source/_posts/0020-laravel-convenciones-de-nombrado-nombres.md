@@ -79,20 +79,15 @@ Vamos a agrupar a las reglas de nombrado según el tipo de elemento. Como nota g
 
 ### Controladores
 
-Los nombres de los controladores se derivan del nombre del modelo añadiendo **el sufijo** _Controller_, aplicando el estilo **PascalCase**. Veamos algunos ejemplos:
+Los nombres de los controladores se derivan del nombre del modelo, añadiendo **el sufijo** _Controller_. Se aplicando el estilo **PascalCase**. Veamos algunos ejemplos:
 
 <div class="mb-10">
-    <div class="bg-green-200 px-4">UsersController</div>
-    <div class="bg-green-200 px-4">OrderDetailsController</div>
+    <div class="bg-green-200 px-4">UserController</div>
+    <div class="bg-green-200 px-4">OrderDetailController</div>
     <div class="bg-red-200 px-4">customerController</div>
     <div class="bg-red-200 px-4">DetalleDeFacturaController</div>
     <div class="bg-red-200 px-4">borrowed-book-controller</div>
 </div>
-
-#### Nota:
-
-* En el caso del primer ejemplo se recomienda que el nombre vaya en plural _UsersController_ pues se refiere a varios registros de la aplicación.
-* En el segundo ejemplo se hace referencia a los detalles de una orden en específico, lo correcto sería nombrar el controlador como _OrderDetailsController_ dado que maneja varios detalles de una orden.
 
 ### Funciones
 
