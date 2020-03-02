@@ -19,6 +19,7 @@
 
 @section('body')
   <div class="w-full flex md:flex-row scrollbar">
+    <!-- POST CONTENT -->
     <div class="w-full lg:w-4/5 bg-white rounded-none md:rounded-lg border shadow">
       @if ($page->cover_image)
         <img src="{{ $page->cover_image }}" alt="{{ $page->title }} cover image" class="mb-2 w-full rounded-none md:rounded-t-lg">
@@ -128,10 +129,14 @@
         <div id="commento"></div>
       </div>
     </div>
+
+    <!-- POST INSIDE NAVIGATION -->
     <navigation-on-page :headings="pageHeadings"></navigation-on-page>
   </div>
-  <nav class="flex flex-col md:flex-row items-start md:text-base my-4 w-full lg:w-2/3 lg:pl-8 break-words">
-    <div class="mx-4 md:1/3 text-center py-4">
+
+  <!-- PREV/NEXT POSTS -->
+  <nav class="flex flex-col md:flex-row items-center md:justify-between md:text-base my-4 md:w-3/4 break-words">
+    <div class="mx-4 md:w-1/3 text-center lg:text-left py-4">
       @if ($next = $page->getNext())
         <a href="{{ $next->getUrl() }}" title="Anterior: {{ $next->title }}">
           &LeftArrow; <br>{{ $next->title }}
@@ -139,7 +144,7 @@
       @endif
     </div>
 
-    <div class="mx-4 md:1/3 text-center py-4">
+    <div class="mx-4 md:w-1/3 text-center lg:text-right py-4">
       @if ($previous = $page->getPrevious())
         <a href="{{ $previous->getUrl() }}" title="Siguiente: {{ $previous->title }}">
           &RightArrow; <br>
@@ -149,6 +154,7 @@
     </div>
   </nav>
 
+  <!-- CONTRIBUTE IN GITHUB -->
   <div
       class="fixed z-100 bottom-0 left-0 right-0 flex-auto w-full max-w-6xl mx-auto pt-4 pb-8 hidden xl:flex xl:justify-end">
     <a class="mr-6"
