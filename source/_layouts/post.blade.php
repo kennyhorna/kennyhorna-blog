@@ -135,7 +135,7 @@
   </div>
 
   <!-- PREV/NEXT POSTS -->
-  <nav class="flex flex-col md:flex-row items-center md:justify-between md:text-base my-4 md:w-3/4 break-words">
+  <nav class="flex flex-col md:flex-row items-center md:items-start md:justify-between md:text-base my-4 md:w-3/4 break-words">
     <div class="mx-4 md:w-1/3 text-center lg:text-left py-4">
       @if ($next = $page->getNext())
         <a href="{{ $next->getUrl() }}" title="Anterior: {{ $next->title }}">
