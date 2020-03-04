@@ -103,8 +103,8 @@ Para más información puedes revisar la documentación de [Ngrok](https://ngrok
 
 Jaime Virrueta subió un video sobre Ngrok en su canal. En él, entra en detalles sobre los casos de uso de Ngrok y una demo utilizándole. Puedes verlo acá:
 
-<div markdown="1">
-<iframe width="800" height="450" src="https://www.youtube.com/embed/z2t_40D4w70" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+<iframe width="853" height="480" src="https://www.youtube.com/embed/z2t_40D4w70" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div> 
 
 ------
