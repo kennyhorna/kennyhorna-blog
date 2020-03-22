@@ -5,7 +5,7 @@ title: "Novedades de Laravel 7"
 date: 2020-02-28
 description: "Como en cada nueva versión, Laravel 7 nos trae una serie de nuevas funciones y mejoras. Esta lista pretende resaltar cada una de estas novedades, mejoras y correcciones."  
 cover_image: /assets/images/posts/0021/0021-novedades-laravel-7.png
-featured: true
+featured: false
 categories: [laravel, php, programming, series]
 ---
 
