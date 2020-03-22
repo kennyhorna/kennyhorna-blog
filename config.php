@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 return [
     'baseUrl' => 'http://kennyhorna.test',
     'production' => false,
@@ -47,6 +49,6 @@ return [
             : $cleaned;
     },
     'isActive' => function ($page, $path) {
-        return ends_with(trimPath($page->getPath()), trimPath($path));
+        return Str::endsWith(trimPath($page->getPath()), trimPath($path));
     },
 ];
