@@ -12,5 +12,10 @@
     "files": [
       "source/_helpers/counters.php"
     ]
+  },
+  "config": {
+    "platform": {
+      "php": "7.2.34"
+    }
   }
 }
