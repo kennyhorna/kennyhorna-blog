@@ -5,7 +5,7 @@ title: "Más allá de CRUDs: [09] Fábricas de pruebas"
 date: 2020-03-22
 description: "Las fábricas de pruebas son un concepto conocido en Laravel, aunque carecen de muchas áreas: no son muy flexibles y también son una especie de caja negra para el usuario. En este capítulo vamos a ver cómo podemos administrar los datos del dominio para las pruebas."  
 cover_image: /assets/images/posts/0024/0024-laravel-mas-alla-de-cruds-fabricas-de-pruebas.png
-featured: true
+featured: false
 reference: https://stitcher.io/blog/laravel-beyond-crud-09-test-factories
 categories: [laravel, php, programming]
 ---
