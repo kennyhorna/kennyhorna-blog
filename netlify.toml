@@ -5,5 +5,5 @@ publish="build_production"
 
 [context.production.environment]
 
-PHP_VERSION="7.3"
+PHP_VERSION="7.2"
 LC_ALL="es_ES"
