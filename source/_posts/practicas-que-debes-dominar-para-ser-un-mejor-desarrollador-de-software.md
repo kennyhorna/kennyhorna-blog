@@ -5,7 +5,7 @@ title: "Las 4 prácticas que debes dominar para ser un mejor desarrollador de so
 date: 2020-12-21
 description: "Llevo algunos años en el desarrollo de software, principalmente como PHP/Laravel developer. Desde que era estudiante, he notado y aplicado lo que leerás a continuación para mejorarme como desarrollador y como persona."  
 cover_image: /assets/images/posts/practicas-que-debes-dominar-para-ser-un-mejor-desarrollador-de-software.png
-featured: true
+featured: false
 categories: [laravel, programming]
 ---
 
