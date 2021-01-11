@@ -126,43 +126,43 @@ Deberías ver algo similar a lo siguiente:
 
 ![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-3-1.png)
 
-### 5. Instalando y asegurando MySQL
-
-Las bases de datos son piezas clave en aplicaciones web. Nos permiten almacenar la información y acceder
-a ella. Una aplicación sin base de datos, salvo excepciones, prácticamente no tiene mucho sentido. Debido
-a esto instalaremos [MySQL](https://es.wikipedia.org/wiki/MySQL).
-
-> De más está decir que puedes instalar el gestor de base de datos que prefieras (Oracle, MongoDB, 
-> MS SQL Server, Neo4j, PostgreSQL, etc). En mi caso escogí MySQL.
-
-#### Instalación
-
-Para instalarlo, volveremos a utilizar APT. A la fecha de este artículo, la versión es la v5.7.27.
-Escribimos en consola (y apretamos <kbd>Enter</kbd> para aceptar):
-
-    sudo apt-get install mysql-server
-
-#### Asegurando nuestra instalación
-
-MySQL tiene la reputación de ser inseguro. Esto no es porque realmente lo sea, sino que las personas que
-lo configuran dejan la configuración por defecto y estas no son seguras para nada. Tomando el caso de mi
-entorno local, mi configuración de MySQL ni siquiera tiene clave y el único usuario es **root**. Esto
-está bien para un entorno local, pero es imperdonable en un entorno de producción o siquiera en uno 
-_stagging_.
-
-Felizmente, MySQL tiene un _helper_ que nos ayudará a librarnos de estos detalles. Nos obligará, por ejemplo,
-a que nuestro usuario _root_ tenga una contraseña. Desactiva también el acceso remoto en modo _root_. Para
-aplicar estos ajustes solo ejecuta:
-
-    sudo mysql_secure_installation
-
-Nos preguntará si queremos activar el plugin que valida la seguridad/fortaleza de nuestras contraseñas. Dado
-que nosotros gestionaremos esto conscientemente, podemos omitir esto. Escribimos `n` y le damos <kbd>Enter</kbd>.
-
-Acto seguido nos pedirá que establezcamos una contraseña (y que la verifiquemos) para el usuario _root_.
-
-> No te preocupes si no aparece nada en pantalla mientra la escribas por seguridad el terminal 
-> oculta la contraseña. 
+ ### 5. Instalando y asegurando MySQL
+ 
+ Las bases de datos son piezas clave en aplicaciones web. Nos permiten almacenar la información y acceder
+ a ella. Una aplicación sin base de datos, salvo excepciones, prácticamente no tiene mucho sentido. Debido
+ a esto instalaremos [MySQL](https://es.wikipedia.org/wiki/MySQL).
+ 
+ > De más está decir que puedes instalar el gestor de base de datos que prefieras (Oracle, MongoDB, 
+ > MS SQL Server, Neo4j, PostgreSQL, etc). En mi caso escogí MySQL.
+ 
+ #### Instalación
+ 
+ Para instalarlo, volveremos a utilizar APT. A la fecha de este artículo, la versión es la v5.7.27.
+ Escribimos en consola (y apretamos <kbd>Enter</kbd> para aceptar):
+ 
+     sudo apt-get install mysql-server
+ 
+ #### Asegurando nuestra instalación
+ 
+ MySQL tiene la reputación de ser inseguro. Esto no es porque realmente lo sea, sino que las personas que
+ lo configuran dejan la configuración por defecto y estas no son seguras para nada. Tomando el caso de mi
+ entorno local, mi configuración de MySQL ni siquiera tiene clave y el único usuario es **root**. Esto
+ está bien para un entorno local, pero es imperdonable en un entorno de producción o siquiera en uno 
+ _stagging_.
+ 
+ Felizmente, MySQL tiene un _helper_ que nos ayudará a librarnos de estos detalles. Nos obligará, por ejemplo,
+ a que nuestro usuario _root_ tenga una contraseña. Desactiva también el acceso remoto en modo _root_. Para
+ aplicar estos ajustes solo ejecuta:
+ 
+     sudo mysql_secure_installation
+ 
+ Nos preguntará si queremos activar el plugin que valida la seguridad/fortaleza de nuestras contraseñas. Dado
+ que nosotros gestionaremos esto conscientemente, podemos omitir esto. Escribimos `n` y le damos <kbd>Enter</kbd>.
+ 
+ Acto seguido nos pedirá que establezcamos una contraseña (y que la verifiquemos) para el usuario _root_.
+ 
+ > No te preocupes si no aparece nada en pantalla mientra la escribas por seguridad el terminal 
+ > oculta la contraseña. 
 
 ![](/assets/images/posts/0002/desplegando-aplicaciones-laravel-6-en-lemp-stack-ubuntu-18-y-nginx-4-1.png)
 
